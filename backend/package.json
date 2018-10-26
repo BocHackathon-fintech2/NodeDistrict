@@ -1,0 +1,45 @@
+{
+  "name": "boc-hackathon-nodedistrict",
+  "version": "0.0.1",
+  "description": "no need clean idea and code",
+  "main": "app.js",
+  "scripts": {
+    "dev": "gulp serve",
+    "dist": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BocHackathon-fintech2/NodeDistrict.git"
+  },
+  "keywords": [
+    "node",
+    "blockchain",
+    "pos"
+  ],
+  "author": "nodedistrict",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BocHackathon-fintech2/NodeDistrict/issues"
+  },
+  "homepage": "https://github.com/BocHackathon-fintech2/NodeDistrict#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "email-templates": "^2.7.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "handlebars": "^4.0.11",
+    "helmet": "^3.9.0",
+    "joi": "^13.0.2",
+    "jsonwebtoken": "^8.1.0",
+    "nodemailer": "^4.4.0",
+    "mysql": "^2.15.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "request": "2.83.0",
+    "uuid": "^3.2.1"
+  }
+}
