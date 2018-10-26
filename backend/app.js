@@ -26,7 +26,7 @@ else {
     const port = process.env.PORT;
 
     var adminAuthRouter = require('./src/routes/admin/authRoutes'),
-        adminAdminUserRouter = require('./src/routes/admin/adminUsersRoutes'),
+        adminAdminUserRouter = require('./src/routes/admin/adminUsersRoutes');
 
     app.use(helmet()); // helping to secure express app
     app.use(bodyParser.json({limit: '50mb'})); // checking if a package coming as a json
@@ -43,7 +43,6 @@ else {
       },
       credentials:true
     }
-
 
     app.use(cors(corsOptions));
 
