@@ -1,0 +1,91 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "cflnew"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/animate.css/animate.min.css",
+        "assets/css/plugins/datatables/datatables.min.css",
+        "assets/css/plugins/datepicker/datepicker3.css",
+        "assets/css/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css",
+        "assets/css/plugins/summernote/summernote.css",
+        "assets/css/plugins/summernote/summernote-bs3.css",
+        "assets/css/plugins/dualListBox/bootstrap-duallistbox.min.css",
+        "assets/css/plugins/colorpicker/bootstrap-colorpicker.min.css",
+        "assets/css/plugins/slick/slick.css",
+        "assets/css/plugins/slick/slick-theme.css",
+        "assets/css/plugins/ionRangeSlider/ion.rangeSlider.css",
+        "assets/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css",
+        "assets/css/style.css"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/metismenu/dist/metisMenu.js",
+        "../node_modules/jquery-sparkline/jquery.sparkline.min.js",
+        "../node_modules/jquery-slimscroll/jquery.slimscroll.js",
+        "assets/js/bootstrap.min.js",
+        "assets/js/plugins/datatables/datatables.min.js",
+        "assets/js/plugins/datepicker/bootstrap-datepicker.js",
+        "assets/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js",
+        "assets/js/plugins/summernote/summernote.min.js",
+        "assets/js/plugins/dualListBox/jquery.bootstrap-duallistbox.js",
+        "assets/js/plugins/colorpicker/bootstrap-colorpicker.min.js",
+        "assets/js/plugins/slick/slick.min.js",
+        "assets/js/plugins/pace/pace.min.js",
+        "assets/js/plugins/wow/wow.min.js",
+        "assets/js/plugins/ionRangeSlider/ion.rangeSlider.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

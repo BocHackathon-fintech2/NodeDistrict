@@ -1,0 +1,1985 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+
+.landing-page .cookie { 
+    position: fixed !important;
+    z-index: 280 !important;
+    color: #FFF;
+    bottom: 0;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-size: 12px; 
+    background-color: #141414;
+}
+
+.landing-page #team .main-image {
+    position:relative;
+    top: 60px;
+}
+
+.landing-page .vertical-timeline-content {
+    background-color: #f4f4f4 !important;
+}
+
+@media(max-width: 767px) {
+
+    .landing-page #team .main-image {
+        position: initial;
+        top: auto;
+    }
+
+    .landing-page  .login-button {
+        display: inherit;
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    .center-orientation .vertical-timeline-content .vertical-date {
+        top: 15px !important;
+    }
+}
+
+.home-spinner {
+    position: absolute;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF !important;
+}
+
+app-landing-contact a.terms {
+    color: #C7AE61 !important;
+}
+
+app-landing-contact a.terms:hover,
+app-landing-contact a.terms:focus {
+    color: #FFF !important;
+}
+
+
+.landing-page .text-box {
+    padding-top: 25px;
+}
+
+.landing-page .text-box a {
+    color: #C7AE61;
+}
+
+.landing-page .main-logo img{
+    margin-top: 5px;
+}
+
+.landing-page .navbar-scroll .main-logo img{
+    width: 53px;
+    margin-top: 5px;
+}
+
+.landing-page .sponsors .img-sponsor img {
+    border:1px solid #C7AE61;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@media(max-width:450px) {
+    .landing-page .main-logo img{
+        width: 53px;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-page .navbar-nav > li > a {
+        padding: 10px 10px !important;
+    }
+    .landing-page .navbar .navbar-header .navbar-toggle {
+        margin-top: 20px !important;
+        padding: 10px 10px !important;
+    }
+}
+
+.landing-page .navbar-default .navbar-brand {
+    background-color: transparent !important;
+    background-image: url(assets/img/logo/107x131.png) !important;
+    width: 107px;
+    height: 131px !important;
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #2f4050 !important;
+    font-size: 13px !important;
+    color: #676a6c !important;
+    overflow-x: hidden !important;
+}
+
+a {
+    cursor: pointer;
+}
+
+.error-help-block {
+    padding-top: 5px;
+    list-style-type: none;
+}
+
+.notification-message-box {
+    position:absolute !important;
+    margin-top: 60px;
+}
+
+.landing-page .testimonials {
+    background-size: cover !important;
+}
+
+app-admin-login .error-help-block {
+    color: #a94442;
+}
+
+user-dashboard .navbar-top-links .dropdown-menu li a {
+    padding: 3px 5px !important;
+}
+
+@media(max-width: 350px) {
+    user-dashboard .nav.navbar-top-links li.dropdown {
+        display: inline-block !important;
+    }
+}
+
+user-dashboard .wrapper-content {
+    max-width:1382px;
+}
+
+user-dashboard .btn-danger {
+    background-color: #E30010;
+    border-color: #FFF !important;
+    color: #FFF !important;
+}
+
+user-dashboard .text-danger {
+    color: #E30010 !important;
+}
+
+user-dashboard .text-success {
+    color: #3c763d !important;
+}
+
+user-dashboard .ibox-title {
+    background-color:#C7AE61 !important;
+    color: #FFF !important;
+}
+
+user-dashboard .btn-danger:hover,
+user-dashboard  .btn-danger:focus,
+user-dashboard  .btn-danger:active,
+user-dashboard  .btn-danger.active,
+user-dashboard .btn-danger:active:focus,
+user-dashboard .btn-danger:active:hover,
+user-dashboard  .btn-danger.active:hover,
+user-dashboard .btn-danger.active:focus {
+  background-color: #FFF !important;
+  border-color: #E30010 !important;
+  color: #E30010 !important;
+}
+
+user-dashboard .profile-element img{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control:focus, .single-line:focus {
+    border-color: #C7AE61 !important;
+}
+
+user-dashboard .advertise-field-top-left-box,
+user-dashboard .advertise-field-top-right-box {
+    position: absolute;
+    width:100%;
+}
+
+user-dashboard .advertise-field-bottom-left-box,
+user-dashboard .advertise-field-bottom-right-box {
+    position: absolute;
+    width: 100%;
+    bottom:0px;
+}
+
+user-dashboard .advertise-field-top-left-box  img {
+    position: relative;
+    margin-left: 13%;
+    margin-top: 12px;
+}
+
+user-dashboard .advertise-field-top-right-box img {
+    position: relative;
+    margin-left: 71%;
+    margin-top: 12px;
+}
+
+user-dashboard .advertise-field-bottom-left-box img {
+    position: relative;
+    margin-left: 4%;
+    margin-bottom: 12px;
+}
+
+user-dashboard .advertise-field-bottom-right-box img {
+    position: relative;
+    margin-left: 80%;
+    margin-bottom: 12px;
+}
+
+user-dashboard .advertise-side-right-box {
+    width: 300px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+user-dashboard .article-advertise img{
+    width: 100%;
+    max-width: 730px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+@media(max-width: 450px) {
+    user-dashboard .advertise-field-top-left-box img {
+        position: relative;
+        margin-left: 15%;
+        margin-top: 12px;
+        width: 50px;
+    }
+
+    user-dashboard .advertise-field-top-right-box img {
+        position: relative;
+        margin-left: 70%;
+        margin-top: 12px;
+        width: 50px;
+    }
+
+    user-dashboard .advertise-field-bottom-left-box img {
+        position: relative;
+        margin-left: 6%;
+        margin-top: 8px !important;
+        width: 50px;
+    }
+
+    user-dashboard .advertise-field-bottom-right-box img {
+        position: relative;
+        margin-left: 80%;
+        margin-top: 8px !important;
+        width: 50px;
+    }
+}
+
+admin-dashboard .form-control:focus, .single-line:focus {
+    border-color: #1ab394 !important;
+}
+
+/* Admin */
+
+.notification-message-box {
+    position: absolute;
+    top: 0px !important;
+    left: 0px !important;
+    z-index: 1000;
+}
+.message-notification {
+    padding: 15px;
+}
+
+.profile-element .block.m-t-xs{
+    color: #fff;
+}
+
+.checkbox-inline {
+    margin-top: 20px !important;
+    padding-bottom: 10px !important; 
+}
+
+.thumbnail-image img.img-responsive {
+    max-width: 100px !important;
+}
+
+input[type=number] {
+    height: 32px !important;
+  }
+
+
+@media (max-width: 768px) {
+    body:not(.mini-navbar) {
+        background-color: #2f4050 !important;
+    }
+
+    #page-wrapper {
+        min-height: 900px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-right {
+        float: right !important;
+        margin-right: 0px !important;
+    }
+}
+
+/* User Auth */
+user-auth .auth-main {
+    height: 100%;
+}
+user-auth .auth-footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #222;
+}
+
+user-auth .auth-footer .copyright {
+    color: #858585 !important;
+}
+
+user-auth .auth-footer a {
+    color: #C7AE61 !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+user-auth .auth-footer a:hover,
+user-auth .auth-footer a:focus {
+    color: #FFF !important;
+}
+
+.auth-footer .developby a {
+    text-align: right !important;
+}
+
+@media(max-width: 768px) {
+    .auth-footer .copyright,
+    .auth-footer .developby a {
+        text-align: center !important;
+    }
+}  
+
+/* User Login */
+
+section#user-login {
+    height: 100% !important;
+    background-image: url("/assets/img/auth/cfl_bg.jpg");
+    padding-left: 15px;
+    padding-right: 15px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+section#user-login .middle-box {
+    max-width: 300px !important;
+}
+
+section#user-login .main-logo {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+section#user-login .forgot-password-url {
+    color: #FFF !important;
+}
+
+section#user-login .btn {
+    width: 130px;
+}
+
+section#user-login  .btn-primary {
+    background-color: #C7AE61 !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    margin-right: 20px;
+}
+
+  section#user-login .btn-primary:hover,
+  section#user-login  .btn-primary:focus,
+  section#user-login  .btn-primary:active,
+  section#user-login  .btn-primary.active,
+  section#user-login .open .dropdown-toggle.btn-primary,
+  section#user-login .btn-primary:active:focus,
+  section#user-login .btn-primary:active:hover,
+  section#user-login  .btn-primary.active:hover,
+  section#user-login .btn-primary.active:focus {
+    background-color: #FFF !important;
+    border-color: #C7AE61 !important;
+    color: #C7AE61 !important;
+  }
+
+
+section#user-login .btn-danger {
+      background-color: #E30010 !important;
+      border-color: #FFF !important;
+      color: #FFF !important;
+  }
+
+  section#user-login .btn-danger:hover,
+  section#user-login  .btn-danger:focus,
+  section#user-login  .btn-danger:active,
+  section#user-login  .btn-danger.active,
+  section#user-login .btn-danger:active:focus,
+  section#user-login .btn-danger:active:hover,
+  section#user-login  .btn-danger.active:hover,
+  section#user-login .btn-danger.active:focus {
+    background-color: #FFF !important;
+    border-color: #E30010 !important;
+    color: #E30010 !important;
+  }
+
+  app-user-login .auth-footer {
+    position: absolute !important;
+    bottom: 0px !important;
+}
+
+@media(max-width:768px) {
+    app-user-login .auth-footer {
+        position: relative !important;
+        bottom: auto !important;
+    }
+}
+
+
+  /* User Register */
+  section#user-register {
+    min-height: 100% !important;
+    background-image: url("/assets/img/auth/cfl_register_bg.jpg");
+    padding-left: 15px;
+    padding-right: 15px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+section#user-register  .btn-primary {
+    background-color: #C7AE61 !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    margin-right: 20px;
+}
+
+section#user-register .btn-primary:hover,
+section#user-register  .btn-primary:focus,
+section#user-register  .btn-primary:active,
+section#user-register  .btn-primary.active,
+section#user-register .open .dropdown-toggle.btn-primary,
+section#user-register .btn-primary:active:focus,
+section#user-register .btn-primary:active:hover,
+section#user-register  .btn-primary.active:hover,
+section#user-register .btn-primary.active:focus {
+    background-color: #FFF !important;
+    border-color: #C7AE61 !important;
+    color: #C7AE61 !important;
+  }
+
+section#user-register .main-logo {
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+section#user-register .middle-box {
+    max-width: 640px !important;
+    min-height: 750px !important;
+    background-color: #FFF;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+section#user-register .social-media-box {
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+section#user-register .social-media {
+    width: 30px;
+    height: 30px;
+    padding-top: 5px;
+    margin-left: 10px;
+    border-radius: 30px;
+    background-color: #888888;
+    color: #DDDDDD;
+    font-size: 22px;
+}
+
+section#user-register .form-control:focus,  
+app-user-login .form-control:focus, 
+section#user-register .single-line:focus,
+app-user-login .single-line:focus {
+    border-color: #C7AE61 !important;
+}
+
+section#user-register .gender-radio {
+    width: 20px;
+    height: 20px;
+    margin-top: 0px;
+}
+
+section#user-register .radio-inline {
+    margin-top: 8px;
+}
+
+section#user-register .radio-inline span {
+    margin-left: 5px;
+}
+
+section#user-register .btn-default {
+    background-color: #d2d2d2;
+}
+
+section#user-register .btn-default:hover,
+section#user-register .btn-default:focus {
+    background-color: #fff;
+}
+
+section#user-register .checkbox-inline a {
+    color: #C7AE61 !important;
+}
+
+section#user-register .checkbox-inline a:hover,
+section#user-register .checkbox-inline a:focus {
+    color: #DDD !important;
+}
+
+.wizard-box {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.wizard-box img {
+    float: left;
+    margin-top: 19px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.wizard-circle {
+    width: 44px;
+    height: 44px;
+    float:left;
+    background-color: #DDDDDD !important;
+    border:2px solid;
+    border-color: #C7AE61 !important;
+    border-radius: 30px;
+    font-size: 14px;
+    padding-left: 16px;
+    padding-top: 10px;
+    color: #222222;
+}
+
+.wizard-white {
+    background-color: #FFF !important;
+}
+
+.wizard-circle.active {
+    background-color: #C7AE61 !important;
+    border-color: #C7AE61 !important;
+    color: #FFF !important;
+}
+
+/* Step 2 */
+
+#register-step-2 .team-box {
+    width: 90px;
+    height: 100px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid #DDD;
+}
+
+#register-step-2 .team-box img {
+    max-width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-box .team_id-radio {
+    width: 100% !important;
+}
+
+#register-step-2 label {
+    font-weight: 400 !important;
+}
+
+#register-step-2 .teams-follow label {
+    font-size: 11px;
+}
+
+/* Step 3 */
+.thank-you {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.thank-you-icon {
+    float: left;
+    padding-left: 20px;
+    padding-top: 12px;
+    color: #C7AE61 !important;
+    font-size: 30px;
+    width: 80px;
+    height: 80px;
+    border: 5px solid;
+    border-color: #C7AE61;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+.thank-you-title {
+    float:left;
+    margin-top: 15px;
+}
+
+.thank-you-title h3 {
+    color: #E30010 !important;
+}
+
+@media(max-width:768px) {
+    section#user-register h2 {
+        font-size: 16px;
+    }
+
+    #register-step-3 .thank-you-title h3 {
+        font-size: 14px;
+    }
+
+}
+
+
+/* User Dashboard */
+
+/* user-dashboard .ibox-content {
+    background-color: transparent !important;
+    border:none !important;
+} */
+
+user-dashboard .btn-default {
+    background-color: #CCCCCC;
+}
+
+user-dashboard section.bottom-sponsors {
+    height: 160px;
+    background-color: transparent;
+}
+
+user-dashboard section.bottom-sponsors img {
+    margin-left:auto;
+    margin-right:auto;
+}
+
+user-dashboard section.user-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding-top:20px;
+    padding-bottom: 20px;
+    color: #999c9e;
+}
+
+user-dashboard .navbar-top-links .dropdown-alerts {
+    width: 150px !important;
+    margin-left: -40px;
+    right: 15px;
+}
+
+user-dashboard .body-small .navbar-top-links li:last-child {
+    margin-right: 20px !important;
+}
+
+user-navigation-sidebar .nav > li.active {
+    border-left: 4px solid #C7AE61 !important;
+    background: #293846 !important;
+  }
+
+  user-dashboard  .btn-primary {
+    background-color: #C7AE61 !important;
+    border-color: #C7AE61 !important;
+    color: #FFFFFF !important;
+  }
+
+  user-dashboard  .btn-primary:hover,
+  user-dashboard  .btn-primary:focus,
+  user-dashboard  .btn-primary:active,
+  user-dashboard  .btn-primary.active,
+  user-dashboard .open .dropdown-toggle.btn-primary,
+  user-dashboard .btn-primary:active:focus,
+  user-dashboard .btn-primary:active:hover,
+  user-dashboard  .btn-primary.active:hover,
+  user-dashboard .btn-primary.active:focus {
+    background-color: #FFF !important;
+    border-color: #C7AE61 !important;
+    color: #C7AE61 !important;
+  }
+
+
+user-dashboard user-help .panel-body{
+    padding-top: 30px !important;
+}  
+
+user-dashboard user-help .faq-item {
+    padding-top:0px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+user-dashboard .faq-question.collapsed {
+    color: #666A6D !important;
+    background-color: #DDDDDD;
+}
+
+user-dashboard .faq-question {
+    font-size: 13px !important;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #D3AB5A;
+    color: #FFF !important;
+}
+
+user-dashboard .faq-answer {
+    margin-top: 0px !important;
+    background: #FFF !important;
+}
+
+/* home */
+user-home #squad-field {
+    background-image: url(assets/img/dashboard/field.svg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    margin-bottom: 0px !important;
+}
+
+user-home .goalkeeper-selection {
+    float: left;
+    width: 100%;
+    margin-left: 36%;
+}
+
+user-home .defenders-selection {
+    margin-left: 10%;
+}
+
+user-home .midfielders-selection {
+    margin-left: 10%;
+}
+
+user-home .forward-selection {
+    float: left;
+    width: 100%;
+    margin-left: 17%;
+}
+
+user-home .forward-selection .tshirt-selection:first-child {
+    margin-right: 8%;
+}
+
+user-home svg {
+    position:relative;
+    z-index:20;
+}
+
+user-home #tshirt-box {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+user-home .tshirt-selection.no-cursor {
+    cursor: auto !important;
+}
+
+user-home .tshirt-selection {
+    position:relative;
+    float:left;
+    width: 10% !important; 
+    margin-left:5%; 
+    margin-right: 5%;
+    max-width: 80px;
+}
+
+user-dashboard user-home .more-articles .article-list,
+user-dashboard user-home-internal-article .article-list.more-article {
+    height: 401px;
+}
+
+user-dashboard user-home .ngx-pagination {
+    text-align: center;
+}
+
+user-dashboard user-home .ngx-pagination li {
+    border: 1px solid #EEE;
+}
+
+user-dashboard user-home .ngx-pagination li.current {
+    background-color:#C7AE61 !important
+}
+
+user-dashboard user-home .ngx-pagination li a,
+user-dashboard user-home .ngx-pagination li.current, 
+user-dashboard user-home .ngx-pagination .disabled {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+
+@media(max-width: 768px) {
+    user-dashboard user-home .more-articles .article-list,
+    user-dashboard user-home-internal-article .article-list.more-article {
+        height: auto !important;
+    }
+}
+
+user-dashboard user-home .article-list .ibox-content,
+user-dashboard user-home-internal-article .ibox-content {
+    padding-top: 0px !important;
+}
+
+user-dashboard user-home-internal-article .more-article .ibox-content {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+user-dashboard user-home-internal-article .more-article .more-article-details {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.breaking-news-box .breaking-news-box-text {
+    padding-top: 2px;
+}
+
+.breaking-news-box .slick-prev {
+    left: auto !important;
+    right: 0px !important;
+}
+
+.breaking-news-box .slick-slide {
+    outline: none !important;
+}
+
+.breaking-news-box .slick-prev,
+.breaking-news-box .slick-next {
+    margin-top: -34px;
+}
+
+.breaking-news-box .slick-prev:before, 
+.breaking-news-box .slick-next:before {
+    color: #ed5565 !important;
+}
+
+.breaking-news-box .slick-slider {
+    margin-bottom: 0px;
+}
+
+.breaking-news-box a {
+    color: inherit !important;
+}
+
+user-dashboard user-home .article_title {
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+user-dashboard user-home .article_short_description {
+    overflow: hidden;
+    height: 58px;
+}
+
+user-dashboard user-home .article-image-box,
+user-dashboard user-home-internal-article .article-image-box {
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+user-dashboard user-home .sub-article-image-box {
+    margin-right: -20px;
+    margin-left: -20px;
+}
+
+user-dashboard user-home .main_article_image {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+user-dashboard user-home .article_image {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+user-dashboard user-home a {
+    cursor: pointer;
+}
+
+user-dashboard user-home-internal-article .main_article_image {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+user-dashboard user-home .fixture-start-at {
+    border-bottom: 1px solid #D6D6D6;
+    padding-bottom: 10px;
+}
+
+user-dashboard user-home .fixture-box {
+    border-bottom: 1px solid #D6D6D6;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+user-dashboard user-home .game-week-results img{
+    width: 35px;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+user-dashboard user-home .game-week-results .game-score {
+    text-align: center;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 4px;
+    background-color: #666666;
+    color: #FFF;
+}
+
+user-dashboard .league-table {
+    /* background-image: url(assets/img/sponsors/advertiseleague.png); */
+    background-repeat: no-repeat;
+    /* height: 325px; */
+}
+
+user-dashboard  .league-table > tbody > tr > td {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+
+}
+
+/* User Player stasticis */
+user-players-statistics i.fa.fa-info {
+    margin-top: 10px;
+}
+
+user-players-statistics .player-statistic-link {
+    cursor: pointer;
+}
+
+user-players-statistics .player-statistics-t-shirt {
+    float:left;
+    margin-top:4px; 
+    margin-right:15px;
+}
+
+user-players-statistics .player-fullname {
+    float:left;
+}
+
+user-players-statistics .table thead{
+    background-color:#2F3F4F; color: #FFF;
+}
+
+user-players-statistics .dataTables_length,
+user-players-statistics .dataTables_filter {
+    display: none !important;
+}
+
+usr-players-statistics table.dataTable td.dataTables_empty, table.dataTable th.dataTables_empty {
+    text-align: left !important;
+}
+
+/* Squad Selection */
+
+user-squad-selection .table thead{
+    background-color:#2F3F4F; color: #FFF;
+}
+
+user-squad-selection i.fa.fa-info {
+    margin-top: 10px;
+}
+user-squad-selection .player-statistics-t-shirt {
+    float:left;
+    margin-top:4px; 
+    margin-right:10px;
+}
+
+user-squad-selection .player-fullname {
+    float:left;
+}
+
+user-squad-selection .selected_player {
+    background-color: #C7AE61; 
+    color: #FFF;
+}
+
+user-squad-selection .remove-box {
+    position: absolute;
+    top: -10px;
+    margin-left: -15px;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+user-squad-selection .remove-box i{
+    padding:5px;
+    font-size: 11px;
+}
+
+user-squad-selection .remove-box i.fa {
+    background-color: #E30010 !important;
+    color: #FFF;
+}
+
+
+user-squad-selection table.player-list tbody,
+user-squad-selection table.player-list tbody tr,
+user-squad-selection table.player-list tbody td,
+user-squad-selection table.player-list tbody th { 
+    display: block; 
+}
+ 
+user-squad-selection table.player-list tbody tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+user-squad-selection table.player-list tbody {
+    max-height: 290px;
+    overflow-y: scroll;
+}
+
+
+user-squad-selection table.player-list tbody tr td:first-child,
+user-squad-selection table.player-list thead tr th:first-child {
+    width: 52%;
+}
+
+user-squad-selection table.player-list thead th {
+    float:left;
+    width: 22%;
+}
+user-squad-selection table.player-list tbody td{
+    width: 24%;
+    float: left;
+}
+
+user-squad-selection table.player-list tr{
+    cursor:pointer;
+}
+
+user-squad-selection table.player-list > thead > tr > th {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* width */
+user-squad-selection table.player-list ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+/* Track */
+user-squad-selection table.player-list ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+user-squad-selection table.player-list ::-webkit-scrollbar-thumb {
+    background: #D3AB5A;
+    border-radius: 20px; 
+}
+
+/* Handle on hover */
+user-squad-selection table.player-list ::-webkit-scrollbar-thumb:hover {
+    background: #2F3F4F; 
+}
+
+user-squad-selection tr.player-row {
+    border-left: 7px solid transparent;
+}
+
+/* My Team */
+
+user-my-team #RulesModal .faq-item {
+    padding: 5px !important;
+}
+
+user-my-team .rules-btn {
+    margin-top: 10px;
+}
+
+user-transfers .gameweek-expire-at,
+user-my-team .gameweek-expire-at,
+user-1x2 .gameweek-expire-at,
+user-questions-list .gameweek-expire-at {
+    font-size: 15px;
+    color:#E30010 !important;
+}
+user-squad-selection #squad-field,
+user-transfers #squad-field,
+user-my-team #squad-field {
+    background-image: url(assets/img/dashboard/field.svg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    margin-bottom: 0px !important;
+}
+
+user-my-team .goalkeeper-selection {
+    float: left;
+    width: 100%;
+    margin-left: 38%;
+}
+
+user-squad-selection .defenders-selection,
+user-transfers .defenders-selection,
+user-my-team .defenders-selection {
+    margin-left: 10%;
+}
+
+user-squad-selection .midfielders-selection,
+user-transfers .midfielders-selection,
+user-my-team .midfielders-selection {
+    margin-left: 10%;
+}
+
+user-squad-selection .forward-selection,
+user-transfers .forward-selection,
+user-my-team .forward-selection {
+    float: left;
+    width: 100%;
+    margin-left: 17%;
+}
+
+user-squad-selection .forward-selection .tshirt-selection:first-child,
+user-transfers .forward-selection .tshirt-selection:first-child,
+user-my-team .forward-selection .tshirt-selection:first-child {
+    margin-right: 8%;
+}
+
+user-squad-selection svg,
+user-transfers svg,
+user-my-team svg {
+    position:relative;
+    z-index:20;
+}
+
+user-my-team .substitute-selection {
+    margin-left: 10% !important;
+}
+
+user-my-team .availabe-substitute-box {
+    top: -5px;
+    left: -25px;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    background: #FFBF00;
+    z-index: 1;
+}
+
+user-squad-selection .full-name,
+user-transfers .full-name,
+user-my-team .full-name {
+    position: relative;
+    z-index: 20;
+    font-size: 11px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #0E8F48;
+    color: #FFF;
+    margin-left: 0px;
+    text-align: center;
+    width: 100px;
+    left: -12px;
+}
+
+user-squad-selection .team-name,
+user-transfers .team-name,
+user-my-team .team-name {
+    position: relative;
+    z-index: 20;
+    font-size: 8px;
+    background-color: #19FF86;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    left: -12px;
+    width: 100px;
+}
+
+user-my-team .priority {
+    position: relative;
+    z-index: 20;
+    margin-top: 10px;
+    left: 2px;
+}
+
+user-squad-selection .current-player-box,
+user-transfers .current-player-box,
+user-my-team .current-player-box {
+    top: 0px;
+    left: -12px;
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    background: #FFBF00;
+    z-index: 1;
+}
+
+user-squad-selection .unselect-box,
+user-transfers .unselect-box,
+user-my-team .unselect-box {
+    position: absolute;
+    top: 0px;
+    margin-left: -18px;
+    cursor: pointer;
+    z-index: 30;
+}
+
+user-squad-selection .unselect-box i.fa,
+user-transfers .unselect-box i.fa,
+user-my-team .unselect-box i.fa {
+    padding:5px;
+    font-size: 11px;
+    background-color: #E30010 !important;
+    color: #FFF;
+}
+
+user-my-team .captain-box,
+user-my-team .vice-captain-box {
+    width: 20px;
+    height: 21px;
+    background-color: #000;
+    color: #FFF;
+    text-align: center;
+    position: absolute;
+    top: 0px;
+    margin-left: 72px;
+    z-index: 30;
+}
+
+user-squad-selection .cypriot-nationality,
+user-transfers .cypriot-nationality,
+user-my-team .cypriot-nationality {
+    left: -42px;
+    top: 40px;
+    width: auto !important;
+    height: auto !important;
+    background: transparent;
+    color: #EEE;
+    text-align: center;
+    position: absolute;
+    margin-left: 72px;
+    z-index: 30;
+}
+
+user-squad-selection #tshirt-box,
+user-transfers #tshirt-box,
+user-my-team #tshirt-box {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+user-squad-selection .tshirt-selection.no-cursor,
+user-transfers .tshirt-selection.no-cursor,
+user-my-team .tshirt-selection.no-cursor {
+    cursor: auto !important;
+}
+
+user-squad-selection .tshirt-selection,
+user-transfers .tshirt-selection,
+user-my-team .tshirt-selection {
+    position:relative;
+    float:left;
+    width: 10% !important; 
+    margin-left:5%; 
+    margin-right: 5%;
+    max-width: 80px;
+}
+
+user-my-team .position-box {
+    position:absolute;
+    top:0px;
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: #FFF;
+}
+
+user-my-team .options-box i.fa {
+    background-color: #FFBF00;
+}
+
+user-my-team table.general-table > tbody > tr > td {
+    border:none !important;
+}
+
+user-my-team .tshirt-selection {
+    position:relative;
+}
+
+user-my-team .tshirt-svg {
+    position:relative;
+    z-index: 1;
+}
+
+@media(max-width: 450px) {
+    user-my-team .game-week-deadline {
+        text-align: center !important;
+    }
+    user-my-team .rules-btn {
+        font-size: 10px !important;
+        margin-top: 15px !important;
+    }
+}
+
+@media(max-width: 768px) {
+    user-my-team .gameweek-totalpoints-modal {
+        text-align: left !important;
+    }
+}
+
+
+/* Leagues */
+user-dashboard user-leagues .dt-buttons.btn-group {
+    display: none;
+}
+
+/* Fixtures */
+
+user-dashboard user-fixtures .slick-initialized .slick-slide {
+    outline: none !important;
+}
+
+user-dashboard user-fixtures .fixture-content .slick-prev, 
+user-dashboard user-fixtures .fixture-content .slick-next {
+    top: 6% !important;
+    width: 100px;
+    background-color: #CCCCCC !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto !important;
+    margin-left: 30px;
+    margin-right: 30px;
+    z-index: 10;
+}
+
+user-dashboard user-fixtures .fixture-content .slick-prev:before {
+    content: "Previous"
+}
+
+user-dashboard user-fixtures .fixture-content .slick-prev {
+    text-align: center;
+}
+
+user-dashboard user-fixtures .fixture-content .slick-next {
+    text-align: center;
+}
+
+user-dashboard user-fixtures .fixture-content .slick-next:before {
+    content: "Next"
+}
+
+user-dashboard user-fixtures .fixture-content .slick-prev:before, 
+user-dashboard user-fixtures .fixture-content .slick-next:before {
+    color: #5A5A5A !important;
+    font-size: 13px !important;
+}
+
+user-dashboard user-fixtures .fixture-start-at {
+    border-bottom: 1px solid #D6D6D6;
+    padding-bottom: 10px;
+    width:100%;
+    float:left;
+}
+
+user-dashboard user-fixtures .fixture-box {
+    border-bottom: 1px solid #D6D6D6;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    float:left;
+    width:100%;
+}
+
+user-dashboard user-fixtures .game-week-results img{
+    width: 35px;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+user-fixtures .game-week-results .game-score {
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #666666;
+    color: #FFF;
+}
+
+
+/* 1x2 AND Quiz */
+user-dashboard user-1x2 .default-result,
+user-dashboard user-questions-list .default-result  {
+    background-color: #EEE;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+user-dashboard user-questions-list .default-result {
+    font-size: 10px !important;
+}
+
+user-dashboard user-1x2 .selected,
+user-dashboard user-questions-list .selected {
+    background: #C7AE61;
+    color: #FFF;
+}
+
+user-dashboard user-questions-list .correct {
+    background:#0E8F48 !important;
+    color: #FFF;
+}
+
+user-dashboard user-questions-list .wrong {
+    background: #E30010 !important;
+    color: #FFF !important;
+}
+
+user-dashboard user-1x2 a .selected,
+user-dashboard user-questions-list a .selected {
+    color: #FFF;
+}
+
+user-dashboard user-1x2 label {
+    height: 40px;
+}
+
+
+@media(max-width: 450px) {
+    user-dashboard user-fixtures .fixture-content .slick-prev, user-dashboard user-fixtures .fixture-content .slick-next {
+        top: 9% !important;
+        width: 60px;
+        height: auto !important;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    user-dashboard user-1x2 label {
+        font-size: 11px;
+        height: 30px;
+    }
+}
+
+.fixture-team-content {
+    width:615px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fixture-team-content .home-team {
+    float:left;
+    width:200px;
+    margin-right:5px;
+    margin-top:10px;
+}
+
+.fixture-team-content .image-box {
+    float:left;
+}
+
+.fixture-team-content .game-score {
+    float:left;
+}
+
+.fixture-team-content .away-team {
+    float:left;
+    text-align: left;
+    margin-left:5px;
+    margin-top: 10px;
+    width:200px;
+}
+
+@media(max-width: 768px) {
+    .fixture-team-content {
+        font-size: 10px;
+        margin-left: 25%;
+    }
+    .fixture-team-content .home-team {
+        display:none;
+    }
+
+    .fixture-team-content .away-team {
+        display:none;
+    }
+}
+
+@media(max-width:450px) {
+
+    user-fixtures .game-week-results .game-score {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Transfers */
+user-squad-selection .goalkeeper-selection,
+user-transfers .goalkeeper-selection {
+    margin-left: 28% !important;
+}
+
+user-transfers .table.player-list thead{
+    background-color:#2F3F4F; color: #FFF;
+}
+
+user-transfers i.fa.fa-info {
+    margin-top: 10px;
+}
+
+user-transfers .player-statistics-t-shirt {
+    float:left;
+    margin-top:4px; 
+    margin-right:10px;
+}
+
+user-transfers .player-fullname {
+    float:left;
+}
+
+user-transfers .selected_player {
+    background-color: #C7AE61; 
+    color: #FFF;
+}
+
+user-transfers .remove-box {
+    position: absolute;
+    top: -20px;
+    margin-left: -15px;
+    cursor:pointer;
+    z-index: 20;
+}
+
+user-transfers .remove-box i{
+    padding:5px;
+    font-size: 11px;
+}
+
+user-transfers .remove-box i.fa {
+    background-color: #FFBF00;
+}
+
+
+user-transfers table.player-list tbody,
+user-transfers table.player-list tbody tr,
+user-transfers table.player-list tbody td,
+user-transfers table.player-list tbody th { 
+    display: block; 
+}
+ 
+user-transfers table.player-list tbody tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+user-transfers table.player-list tbody {
+    max-height: 290px;
+    overflow-y: scroll;
+}
+
+
+user-transfers table.player-list tbody tr td:first-child,
+user-transfers table.player-list thead tr th:first-child {
+    width: 52%;
+}
+
+user-transfers table.player-list thead th {
+    float:left;
+    width: 22%;
+}
+
+user-transfers table.player-list tbody td{
+    width: 24%;
+    float: left;
+}
+
+user-transfers table.player-list tr{
+    cursor:pointer;
+}
+
+user-transfers table.player-list > thead > tr > th {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* width */
+user-transfers table.player-list ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+/* Track */
+user-transfers table.player-list ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+user-transfers table.player-list ::-webkit-scrollbar-thumb {
+    background: #D3AB5A;
+    border-radius: 20px; 
+}
+
+/* Handle on hover */
+user-transfers table.player-list ::-webkit-scrollbar-thumb:hover {
+    background: #2F3F4F; 
+}
+
+user-transfers tr.player-row {
+    border-left: 7px solid transparent;
+}
+
+user-prizes .second-prize-box .ibox-content,
+user-prizes .first-prize-box .ibox-content {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+
+user-prizes .first-prize-box .first-prize-content {
+    text-align: center;
+    background-color: #C7AE61;
+    color: #FFF !important;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+user-prizes .second-prize-box .second-prize-content {
+    text-align: center;
+    background-color: #E20008;
+    color: #FFF !important;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+
+@media(min-width: 768px) and (max-width: 991px) {
+    user-squad-selection #squad-field {
+        height: 650px;
+    }
+
+    user-transfers #squad-field {
+        height: 650px;
+    }
+}
+
+@media(max-width:450px) {
+
+    user-squad-selection #squad-field-content h2,
+    user-transfers #squad-field-content h2,
+    user-my-team #squad-field-content h2 {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+    user-squad-selection #squad-field-content,
+    user-transfers #squad-field-content,
+    user-my-team #squad-field-content {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    user-squad-selection #squad-field-content .statuses,
+    user-transfers #squad-field-content .statuses,
+    user-my-team #squad-field-content .statuses {
+        margin-left: 20px;
+    }
+
+    user-squad-selection #squad-field-content .statuses,
+    user-transfers #squad-field-content .statuses,
+    user-my-team #squad-field-content .statuses {
+        font-size: 11px;
+    }
+
+    user-squad-selection #tshirt-box,
+    user-transfers #tshirt-box,
+    user-my-team #tshirt-box {
+        margin-top: 10px;
+    }
+
+    user-my-team .goalkeeper-selection {
+        margin-left: 36% !important;
+    }
+
+    user-squad-selection .tshirt-selection,
+    user-transfers .tshirt-selection,
+    user-my-team .tshirt-selection {
+        width: 8% !important;
+        margin-left: 6%;
+        margin-right: 6%;
+    }
+
+    user-my-team .availabe-substitute-box {
+        top: -2px;
+        left: -15px;
+        width: 64px;
+        height: 92px;
+        position: absolute;
+        background: #FFBF00;
+        z-index: 1;
+    }
+
+    user-squad-selection .current-player-box,
+    user-transfers .current-player-box,
+    user-my-team .current-player-box {
+        top: 0px;
+        left: -6px;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        background: #FFBF00;
+        z-index: 1;
+    }
+
+    user-squad-selection .unselect-box,
+    user-transfers .unselect-box,
+    user-my-team .unselect-box {
+        position: absolute;
+        top: -4px;
+        margin-left: -18px;
+        cursor: pointer;
+        z-index: 30;
+    }
+
+    user-squad-selection .unselect-box i.fa,
+    user-transfers .unselect-box i.fa,
+    user-my-team .unselect-box i.fa {
+        padding: 5px;
+        font-size: 7px;
+        background-color: #E30010 !important;
+        color: #FFF;
+    }
+
+    user-my-team .captain-box,
+    user-my-team .vice-captain-box {
+        width: 15px;
+        height: 15px;
+        font-size: 8px;
+        top: 0px;
+        margin-left: 28px;
+    }
+
+    user-squad-selection .cypriot-nationality,
+    user-transfers .cypriot-nationality,
+    user-my-team .cypriot-nationality {
+        left: -18px;
+        top: 12px;
+        background: transparent;
+        color: #EEE;
+        font-size: 7px;
+        margin-left: 28px;
+    }
+
+    user-squad-selection .full-name,
+    user-transfers .full-name,
+    user-my-team .full-name {
+        width: 60px;
+        position: relative;
+        left: -13px;
+        z-index: 20;
+        font-size: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #0E8F48;
+        color: #FFF;
+        text-align: center;
+    }
+
+    user-squad-selection .team-name,
+    user-transfers .team-name,
+    user-my-team .team-name {
+        width: 60px;
+        position: relative;
+        left: -13px;
+        z-index: 20;
+        font-size: 7px;
+        background-color: #19FF86;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+
+    user-my-team .substitute-selection {
+        margin-left: 4% !important;
+    }
+
+    user-my-team .substitute-selection .tshirt-selection {
+        margin-left: 7% !important;
+        margin-right: 7% !important;
+    }
+
+    user-squad-selection .goalkeeper-selection,
+    user-transfers .goalkeeper-selection {
+        margin-left: 28% !important;
+    }
+
+}
+
+
+@media(max-width:768px) {
+    user-dashboard user-home .sub-article-image-box {
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+
+    .breaking-news-box .slick-prev,
+    .breaking-news-box .slick-next {
+        margin-top: -55px;
+    }
+
+    user-players-statistics .player-statistics-t-shirt {
+        display: none;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 991px) {
+    .breaking-news-box .slick-prev,
+    .breaking-news-box .slick-next {
+        margin-top: -50px;
+    }
+}
+
+@media(max-width:450px) {
+    .breaking-news-box .slick-prev, .breaking-news-box .slick-next {
+        margin-top: -35px;
+    }
+}
+
+
+/* Modal */
+user-dashboard .error-modal .modal-header {
+    background-color:#E30010 !important;
+    color: #FFF;
+}
+
+user-dashboard .modal-header {
+    background-color:#C7AE61;
+    color: #FFF;
+}
+
+user-dashboard .modal-body {
+    padding: 0px 30px 0px 30px !important;
+}
+
+user-dashboard .modal-content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+user-dashboard .modal-header .close{
+    color: #FFF;
+    opacity: 1 !important;
+}
+
+user-dashboard #selectMainOptionModal .btn,
+user-dashboard #selectSubOptionModal .btn {
+    width: 150px;
+}
+
+user-dashboard #playerInfoModal .player_details {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+user-dashboard #playerInfoModal .modal-body {
+    background-color: #EEEEEE;
+}
+
+user-dashboard #playerInfoModal .player_image {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+user-dashboard #playerInfoModal .player_number_team {
+    position:relative;
+}
+
+user-dashboard #playerInfoModal .player_number {
+    font-size: 100px;
+    color: #D6D6D6;
+    top: 0;
+    left: 30%;
+}
+
+user-dashboard #playerInfoModal .player_team {
+    z-index: 10;
+}
+
+user-dashboard #playerInfoModal .table {
+    font-size:11px;
+}
+
+user-dashboard #playerInfoModal .table thead {
+    
+    background-color: #2F3F4F;
+    color: #FFF;
+}
+
+user-dashboard #playerInfoModal .modal-body {
+    padding: 0px 0px 0px 0px !important;
+}
+user-dashboard #GameweekpointsModal tr th,
+user-dashboard #GameweekpointsModal tr td {
+    text-align: center;
+}
+
+@media(max-width:450px) {
+    user-dashboard #playerInfoModal .player_image {
+        width: 40%;
+    }
+}
+
+user-dashboard .irs-slider{
+    width: 20px !important;
+}
+
+.exchange-box-modal {
+    margin-left: 2px;
+}
+
+.exchange-box-modal i.fa{
+    padding:5px;
+    font-size: 11px;
+    background-color: #FFBF00;
+}

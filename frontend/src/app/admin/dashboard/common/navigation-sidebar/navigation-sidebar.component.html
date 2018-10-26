@@ -1,0 +1,24 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="profile-element text-center">
+                    <span class="text-muted text-xs block">Welcome </span>
+                    <span class="block m-t-xs"> <strong class="font-bold">{{ full_name }}</strong> </span>
+                </div>
+                <div class="logo-element">
+                    ND
+                </div>
+            </li>
+        
+            <li [ngClass]="{active: activeRoute('tokens')}">
+                <a [routerLink]="['/tokens']"><i class="fa fa-btc"></i> <span class="nav-label">Tokens</span></a>
+            </li>
+            <li [ngClass]="{active: activeRoute('admins')}">
+                <a [routerLink]="['/admins']"><i class="fa fa-user-circle-o"></i> <span class="nav-label">Admin Users</span></a>
+            </li>
+        </ul>
+      
+    </div>
+</nav>
+      
