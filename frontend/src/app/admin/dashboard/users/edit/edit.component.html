@@ -1,0 +1,87 @@
+<div *ngIf="have_error" class="row col-xs-12 col-xs-offset-0 col-sm-5 col-sm-offset-3 notification-message-box animated slideInDown">
+        <div class="message-notification alert-danger">
+            <i class="fa fa-times"></i> Error: {{ message }}
+        </div>
+    </div>
+    
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Users</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a [routerLink]="['/users']">Users</a>
+            </li>
+            <li class="active">
+                <strong>Edit User</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+        
+<div class="col-lg-12 wrapper-content">
+    <div class="ibox float-e-margins">
+        <form [formGroup]="form" class="form-horizontal" (submit)="onSaveSubmit()">
+            <div class="ibox-title col-xs-12">
+                <div class="col-xs-12 col-sm-6 text-left">
+                    <h5>Edit User</h5>
+                </div>
+                <div class="col-xs-12 col-sm-6 text-right">
+                    <button [disabled]="!form.valid || processing" type="submit" class="btn btn-w-s btn-primary"><i class="fa fa-save"></i> Save</button>
+                    <a (click)="backClicked()"><button type="button" class="btn btn-w-s btn-danger"><i class="fa fa-times"></i> Close</button></a>
+                </div>
+            </div>
+            <div class="ibox-content col-xs-12">
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label class="col-xs-12">First Name *</label>
+                    <div class="col-xs-12">
+                        <input type="text" formControlName="first_name"  class="form-control" maxlength="30">
+                    </div>
+                    <ul class="help-block text-danger">
+                        <li *ngIf="form.controls.first_name.errors?.required && form.controls.first_name.dirty">This field is required</li>
+                    </ul>
+                </div>
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label class="col-xs-12">Last Name *</label>
+                    <div class="col-xs-12">
+                        <input type="text" formControlName="last_name"  class="form-control" maxlength="30">
+                    </div>
+                    <ul class="help-block text-danger">
+                        <li *ngIf="form.controls.last_name.errors?.required && form.controls.last_name.dirty">This field is required</li>
+                    </ul>
+                </div>
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label class="col-xs-12">Email *</label>
+                    <div class="col-xs-12">
+                        <input type="text" name="email" class="form-control" autocomplete="off" formControlName="email" />   
+                    </div>
+                    <ul class="help-block text-danger">
+                        <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is required</li>
+                        <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">This must be a valid email</li>
+                    </ul>
+                </div>
+            
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label class="col-xs-12">Password</label>
+                    <div class="col-xs-12">
+                        <input type="password" name="password" class="form-control" autocomplete="off" formControlName="password" />                                        
+                    </div>
+                    <ul class="help-block text-danger">
+                        <li *ngIf="form.controls.password.errors?.minlength && form.controls.password.dirty || form.controls.password.errors?.maxlength && form.controls.password.dirty ">Minimum characters: 8</li>
+                        <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">at least one uppercase letter, one digit and one special character</li>
+                    </ul>
+                </div>
+            
+                <div class="form-group col-xs-12 col-sm-6">
+                    <div class="col-sm-12 text-left">
+                        <label class="checkbox-inline"> 
+                            <input id="is_verified" [checked]="is_verified" (change)="onCheckedSelect($event)" formcontrolname="is_verified" type="checkbox" > is Active?
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

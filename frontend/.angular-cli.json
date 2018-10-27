@@ -34,6 +34,7 @@
         "assets/css/plugins/slick/slick-theme.css",
         "assets/css/plugins/ionRangeSlider/ion.rangeSlider.css",
         "assets/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css",
+        "assets/css/plugins/morris/morris.min.css",
         "assets/css/style.css"
       ],
       "scripts": [
@@ -51,7 +52,9 @@
         "assets/js/plugins/slick/slick.min.js",
         "assets/js/plugins/pace/pace.min.js",
         "assets/js/plugins/wow/wow.min.js",
-        "assets/js/plugins/ionRangeSlider/ion.rangeSlider.min.js"
+        "assets/js/plugins/ionRangeSlider/ion.rangeSlider.min.js",
+        "assets/js/plugins/morris/morris.js",
+        "assets/js/plugins/morris/raphael.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

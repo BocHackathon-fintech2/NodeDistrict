@@ -43,6 +43,22 @@ const routes: Routes = [
                 component: dashboard.AdminUsersEditComponent
             },
             {
+                path: 'users',
+                component: dashboard.UsersComponent
+            },
+            {
+                path: 'users/add',
+                component: dashboard.UsersAddComponent
+            },
+            {
+                path: 'users/view/:id',
+                component: dashboard.UsersViewComponent
+            },
+            {
+                path: 'users/edit/:id',
+                component: dashboard.UsersEditComponent
+            },
+            {
                 path: 'tokens',
                 component: dashboard.TokensComponent
             },
@@ -70,6 +86,10 @@ const routes: Routes = [
                 path: 'nodes/view/:id',
                 component: dashboard.NodesViewComponent
             },
+            {
+                path: 'nodes/edit/:id',
+                component: dashboard.NodesEditComponent
+            }
         ]
     }
 ];

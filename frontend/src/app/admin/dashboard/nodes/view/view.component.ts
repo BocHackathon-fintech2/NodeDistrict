@@ -4,17 +4,21 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import { NodesService } from '../../../../shared/services/admin/nodes.service'
 import { environment } from '../../../../../environments/environment'
 
+import { donutChart } from '../../../../app.helpers'
+
+declare var jQuery:any;
+declare var $:any;
 @Component({
     selector: 'nodes-view-route',
     templateUrl: './view.component.html'
 })
 
-
 export class NodesViewComponent implements OnInit {
-    obj = {};
+    obj;
     apiUrl = environment.apiUrl+"/";
     have_error = false;
     message;
+    users_own_node = []
     constructor(  
         private service: NodesService,
         private activatedRoute: ActivatedRoute,
@@ -31,7 +35,46 @@ export class NodesViewComponent implements OnInit {
     view(id) {
         this.service.view(id).subscribe(data => {
             this.obj = data;
-            console.log(this.obj);
+            if(data.users_own_nodes.length > 0) {
+                for(var i=0; i < data.users_own_nodes.length; i++) {
+                    if(this.users_own_node.length > 0) {
+                        for(var c=0; c < this.users_own_node.length; c++) {
+                            if( this.users_own_node[c].user_id == data.users_own_nodes[i].user_id) {
+                                this.users_own_node[c]["amount_own"] += data.users_own_nodes[i].amount
+                            }
+                        }
+                    }
+                    else {
+                        this.users_own_node.push({
+                            user_id: data.users_own_nodes[i].user_id,
+                            full_name: `${data.users_own_nodes[i].first_name} ${data.users_own_nodes[i].last_name}`,
+                            amount_own: data.users_own_nodes[i].amount,
+                            available_daily_amount: 0,
+                            withdrawl_daily_amount: 0,
+                            total_daily_amount: 0
+                        })
+                    }
+                }
+            }
+            if(this.users_own_node.length > 0) {
+                if(data.users_nodes_rewards.length > 0) {
+                    for(var i=0; i < data.users_nodes_rewards.length; i++) {
+                        for(var c=0; c < this.users_own_node.length; c++) {
+                            if(this.users_own_node[c].user_id == data.users_nodes_rewards[i].user_id) {
+                                if(!data.users_nodes_rewards[i].withdrawl_at)
+                                    this.users_own_node[c]["available_daily_amount"] += data.users_nodes_rewards[i].amount
+                                else if(data.users_nodes_rewards[i].withdrawl_at)
+                                    this.users_own_node[c]["withdrawl_daily_amount"] +=  data.users_nodes_rewards[i].amount
+   
+                                this.users_own_node[c]["total_daily_amount"] += data.users_nodes_rewards[i].amount
+                            }
+                        }
+                    }
+                }
+            }
+
+            donutChart([1])
+
         }, (err) => {
             console.log(err._body)
         })
@@ -50,10 +93,11 @@ export class NodesViewComponent implements OnInit {
 
     deployMethod(id) {
         this.service.deploy(id).subscribe(data => {
-            
+            location.reload();
         }, (err) => {
             this.have_error = true;
             this.message = err._body;
         })
     }
+
 }

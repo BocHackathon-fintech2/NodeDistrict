@@ -1,0 +1,23 @@
+<form class="m-t" role="form" [formGroup]="form" (submit)="onLoginSubmit()">
+    <!-- Custom Success/Error Message -->
+    <div class="row show-hide-message">
+        <div class="custom-message" [ngClass]="messageClass">
+            {{ message }}
+        </div>
+    </div>
+  
+    <div class="form-group">
+        <input type="email" class="form-control" placeholder="Username" formControlName="email" required="">
+        <div class="error-help-block text-left">
+            <div *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is required.</div>
+            <div *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">This must be a valid e-mail</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password" required="">
+        <div class="error-help-block text-left">
+            <div *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This field is required.</div>
+        </div>
+    </div>
+    <input [disabled]="!form.valid || processing" class="btn btn-primary block full-width m-b" type="submit" value="Login" />
+</form>

@@ -27,8 +27,11 @@ else {
 
     var adminAuthRouter = require('./src/routes/admin/authRoutes'),
         adminAdminUserRouter = require('./src/routes/admin/adminUsersRoutes'),
+        adminUserRouter = require('./src/routes/admin/userRoutes'),
         adminTokenRouter = require('./src/routes/admin/tokenRoutes'),
         adminNodeRouter = require('./src/routes/admin/nodeRoutes');
+    
+    var userAuthRouter = require('./src/routes/user/authRoutes')
 
     app.use(helmet()); // helping to secure express app
     app.use(bodyParser.json({limit: '50mb'})); // checking if a package coming as a json
@@ -51,10 +54,13 @@ else {
     require('./src/config/passport')(app);
     
     app.use('/admin/auth', adminAuthRouter);
+    app.use('/admin/users', adminUserRouter);
     app.use('/admin/admin-users', adminAdminUserRouter);
     app.use('/admin/tokens', adminTokenRouter);
     app.use('/admin/nodes', adminNodeRouter);
 
+    app.use('/user/auth', userAuthRouter);
+    
     app.use("/public", express.static(path.join(__dirname, 'public')));
 
     // running the server

@@ -10,6 +10,7 @@
 declare var jQuery:any;
 declare var $:any;
 declare var WOW:any;
+declare var Morris:any;
 
 export function landing() {
   $(document).ready(function () {
@@ -374,4 +375,19 @@ export function openModal(id_element) {
 
 export function closeModal(id_element) {
   jQuery(`#${id_element}`).modal('hide');
+}
+
+export function donutChart(array) {
+  $(document).ready(function () {
+
+    Morris.Donut({
+        element: 'morris-donut-admin',
+        data: [{ label: "Download Sales", value: 12 },
+            { label: "In-Store Sales", value: 30 },
+            { label: "Mail-Order Sales", value: 20 } ],
+        resize: true,
+        colors: ['#87d6c6', '#54cdb4','#1ab394'],
+    });
+
+});
 }

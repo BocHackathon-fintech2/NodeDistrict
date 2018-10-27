@@ -69,14 +69,34 @@ router.get('/view/:id', passport.authenticate('jwt-admin',{ session: false }), (
         var sql = `SELECT nodes.*, tokens.title as token_title, tokens.symbol AS token_symbol FROM nodes
             INNER JOIN tokens ON tokens.id = nodes.token_id
             WHERE nodes.id = '${req.params.id}' AND tokens.deleted_at IS NULL AND nodes.deleted_at IS NULL`
-        mysql.selectOne(sql, (err, token) => {
+        mysql.selectOne(sql, (err, node) => {
             if(err)
                 res.status(500).send(`Error: ${err}`);
             else {
-                if(!token)
-                    res.status(400).send("Token not found");
+                if(!node)
+                    res.status(400).send("Node not found");
                 else {
-                    res.status(200).send(token);
+                    sql = `SELECT users_own_nodes.*, users.first_name, users.last_name FROM users_own_nodes 
+                            INNER JOIN users ON users.id = users_own_nodes.user_id
+                            WHERE node_id = '${node.id}'`
+                    mysql.select(sql, (err, users_own_nodes) => {
+                        if(err)
+                            res.status(500).send(err)
+                        else {
+                            sql = `SELECT * FROM users_nodes_rewards WHERE node_id = '${node.id}'`
+                            mysql.select(sql, (err, users_nodes_rewards) => {
+                                if(err)
+                                    res.status(500).send(err)
+                                else {
+                                    res.status(200).json({
+                                        node: node,
+                                        users_own_nodes: users_own_nodes,
+                                        users_nodes_rewards: users_nodes_rewards
+                                    });
+                                }
+                            });
+                        }
+                    })
                 }
             }
         })
@@ -88,15 +108,26 @@ router.get('/view/:id', passport.authenticate('jwt-admin',{ session: false }), (
 
 router.get('/edit/:id', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
      if(req.params.id) {
-        var sql = `SELECT * FROM tokens WHERE id = '${req.params.id}'`
-        mysql.selectOne(sql, (err, token) => {
+        var sql = `SELECT * FROM nodes WHERE id = '${req.params.id}' AND deleted_at IS NULL`
+        mysql.selectOne(sql, (err, node) => {
             if(err)
                 res.status(500).send(`Error: ${err}`);
             else {
-                if(!token)
-                    res.status(400).send("Token not found");
-                else
-                    res.status(200).send(token);
+                if(!node)
+                    res.status(400).send("Node not found");
+                else {
+                    sql = `SELECT * FROM tokens WHERE deleted_at IS NULL`;
+                    mysql.select(sql, (err, tokens) => {
+                        if(err)
+                            res.status(500).send(err)
+                        else {
+                            res.status(200).json({
+                                node: node,
+                                tokens: tokens
+                            })
+                        }
+                    })
+                }
             }
         })
     }
@@ -107,44 +138,94 @@ router.get('/edit/:id', passport.authenticate('jwt-admin',{ session: false }), (
 router.post('/edit', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
      var valid_schema = Joi.object().keys({
         id: Joi.required(),
-        title: Joi.string().max(30).required(),
-        symbol: Joi.string().max(4).required(),
-        price: Joi.required()
+        title: Joi.string().required(),
+        token_id: Joi.string().required(),
+        total_tokens: Joi.required(),
+        daily_rewards: Joi.required()
     });
     Joi.validate({
         id: req.body.id,
         title: req.body.title,
-        symbol: req.body.symbol,
-        price: req.body.price
+        token_id: req.body.token_id,
+        total_tokens: req.body.total_tokens,
+        daily_rewards: req.body.daily_rewards
     }, valid_schema, (err, value) => {
         if(err)
             res.status(400).send("Please feel all the require fields");
         else {
-            var sql = `SELECT * FROM tokens WHERE id = '${value.id}'`
-            mysql.selectOne(sql, (err, token) => {
+            var sql = `SELECT * FROM nodes WHERE id = '${value.id}' AND deleted_at IS NULL`
+            mysql.selectOne(sql, (err, node) => {
                 if(err)
-                    res.status(500).send(`Error: ${err}`);
+                    res.status(500).send(err)
                 else {
-                    if(!token)
-                        res.status(400).send("Token not found");
-                    else {
-                        var sql = `UPDATE tokens SET title = ?, symbol = ? WHERE id = '${value.id}' AND deleted_at IS NULL`;
-                        mysql.updateOne(sql,[
-                            value.title,
-                            value.symbol,
-                            value.price
-                        ], (err, changed_rows) => {
+                    if(node) {
+                        var sql = `SELECT * FROM tokens WHERE id = '${value.token_id}' AND deleted_at IS NULL`
+                        mysql.selectOne(sql, (err, token) => {
                             if(err)
                                 res.status(500).send(`Error: ${err}`);
-                            else
-                                res.status(200).json({message: `The Token was successfully updated`});
-                        })    
+                            else {
+                                if(!token)
+                                    res.status(400).send("Token not found");
+                                else {
+                                    var sql = `UPDATE nodes SET title = ?, token_id = ?, total_tokens = ?, daily_rewards = ? WHERE id = '${value.id}' AND deleted_at IS NULL`;
+                                    mysql.updateOne(sql,[
+                                        value.title,
+                                        value.token_id,
+                                        value.total_tokens,
+                                        value.daily_rewards
+                                    ], (err, changed_rows) => {
+                                        if(err)
+                                            res.status(500).send(`Error: ${err}`);
+                                        else
+                                            res.status(200).json({message: `The Node was successfully updated`});
+                                    })    
+                                }
+                            }
+                        });
                     }
+                    else
+                        res.status(500).send(`Node not found`);
                 }
-            });
+            })
         }
     });
     
+});
+
+router.post('/deploy', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
+    var valid_schema = Joi.object().keys({
+        id: Joi.required()
+    });
+    Joi.validate({
+        id: req.body.id
+    }, valid_schema, (err, value) => {
+        if(err)
+            res.status(400).send("Please feel all the require fields");
+        else {
+            var sql = `SELECT * FROM nodes WHERE id='${value.id}' AND deployment_at IS NULL`;
+            mysql.selectOne(sql, (err, node) => {
+                if(err)
+                    res.status(500).send(err);
+                else {
+                    if(node) {
+                        
+                        sql = `UPDATE nodes SET deployment_at = ? WHERE id = '${value.id}'`
+                        mysql.updateOne(sql,[
+                            new Date().toISOString().slice(0, 19).replace('T', ' ')
+                            ], (err, changed_rows) => {
+                            if(err)
+                                res.status(500).send(err)
+                            else {
+                                res.status(200).json({meesage: "ok"});
+                            }
+                        })
+                    }
+                    else
+                        res.status(500).send(`Node not found or is already deployed`)
+                }
+            })
+        }
+    });
 });
 
 router.post('/delete', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
@@ -157,15 +238,15 @@ router.post('/delete', passport.authenticate('jwt-admin',{ session: false }), (r
         if(err)
             res.status(400).send("Please feel all the require fields");
         else {
-            var sql = `UPDATE tokens SET deleted_at = ? WHERE id = '${value.id}' AND deleted_at IS NULL`;
+            var sql = `UPDATE nodes SET deleted_at = ? WHERE id = '${value.id}' AND deleted_at IS NULL`;
             mysql.softDeleteOne(sql, (err, changed_rows) => {
                 if(err)
                     res.status(500).send(`Error: ${err}`);
                 else {
                     if(changed_rows)
-                        res.status(200).json({message: `The Token was successfully deleted`})
+                        res.status(200).json({message: `The Node was successfully deleted`})
                     else
-                        res.status(400).send(`Token not found`)
+                        res.status(400).send(`Node not found`)
                 }
             })
         }

@@ -17,6 +17,9 @@
             <li [ngClass]="{active: activeRoute('nodes')}">
                 <a [routerLink]="['/admin/nodes']"><i class="fa fa-microchip"></i> <span class="nav-label">Nodes</span></a>
             </li>
+            <li [ngClass]="{active: activeRoute('users')}">
+                <a [routerLink]="['/admin/users']"><i class="fa fa-group"></i> <span class="nav-label">Users</span></a>
+            </li>
             <li [ngClass]="{active: activeRoute('admins')}">
                 <a [routerLink]="['/admin/admins']"><i class="fa fa-user-circle-o"></i> <span class="nav-label">Admin Users</span></a>
             </li>

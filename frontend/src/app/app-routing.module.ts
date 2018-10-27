@@ -5,6 +5,11 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
     {
+        path: 'user',
+        loadChildren: 'app/user/user.module#UserModule'
+
+    },
+    {
         path: 'admin',
         loadChildren: 'app/admin/admin.module#AdminModule'
     }
