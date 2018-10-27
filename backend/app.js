@@ -31,7 +31,9 @@ else {
         adminTokenRouter = require('./src/routes/admin/tokenRoutes'),
         adminNodeRouter = require('./src/routes/admin/nodeRoutes');
     
-    var userAuthRouter = require('./src/routes/user/authRoutes')
+    var userAuthRouter = require('./src/routes/user/authRoutes'),
+        userHomeRouter = require('./src/routes/user/homeRoutes'),
+        userBuyRouter = require('./src/routes/user/buyRoutes');
 
     app.use(helmet()); // helping to secure express app
     app.use(bodyParser.json({limit: '50mb'})); // checking if a package coming as a json
@@ -60,6 +62,8 @@ else {
     app.use('/admin/nodes', adminNodeRouter);
 
     app.use('/user/auth', userAuthRouter);
+    app.use('/user/home', userHomeRouter);
+    app.use('/user/buy', userBuyRouter);
     
     app.use("/public", express.static(path.join(__dirname, 'public')));
 

@@ -7,7 +7,7 @@ import { AuthUserService } from './auth-user.service'
 import { environment } from '../../../../environments/environment'
 
 @Injectable()
-export class User1x2Service {
+export class UserHomeService {
     constructor(
         private authUserService: AuthUserService,
         private http: Http,
@@ -16,14 +16,14 @@ export class User1x2Service {
 
     get() {
         return this.http.get(
-            environment.apiUrl + '/user/1x2',
+            environment.apiUrl + '/user/home',
             this.authUserService.createAuthenticationHeaders()
         ).map(res => res.json());
     }
 
     save(data) {
         return this.http.post(
-            environment.apiUrl + `/user/1x2/post`,
+            environment.apiUrl + `/user/home/post`,
             data,
             this.authUserService.createAuthenticationHeaders()
         ).map(res => res.json())

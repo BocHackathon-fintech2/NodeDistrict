@@ -4,8 +4,6 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import { NodesService } from '../../../../shared/services/admin/nodes.service'
 import { environment } from '../../../../../environments/environment'
 
-import { donutChart } from '../../../../app.helpers'
-
 declare var jQuery:any;
 declare var $:any;
 @Component({
@@ -19,6 +17,7 @@ export class NodesViewComponent implements OnInit {
     have_error = false;
     message;
     users_own_node = []
+    process = false;
     constructor(  
         private service: NodesService,
         private activatedRoute: ActivatedRoute,
@@ -72,9 +71,6 @@ export class NodesViewComponent implements OnInit {
                     }
                 }
             }
-
-            donutChart([1])
-
         }, (err) => {
             console.log(err._body)
         })
@@ -92,9 +88,24 @@ export class NodesViewComponent implements OnInit {
     }
 
     deployMethod(id) {
+        this.process = true;
         this.service.deploy(id).subscribe(data => {
             location.reload();
+            this.process = false;
         }, (err) => {
+            this.process = false;
+            this.have_error = true;
+            this.message = err._body;
+        })
+    }
+
+    destroyMethod(id) {
+        this.process = true;
+        this.service.destroy(id).subscribe(data => {
+            location.reload();
+            this.process = false;
+        }, (err) => {
+            this.process = false;
             this.have_error = true;
             this.message = err._body;
         })

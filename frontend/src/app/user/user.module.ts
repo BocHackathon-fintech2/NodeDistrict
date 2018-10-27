@@ -18,7 +18,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 import {
     AuthUserService,
-    AuthUserGuardService
+    AuthUserGuardService,
+    UserHomeService,
+    UserBuyService
 } from '../shared/index'
 
 import {
@@ -38,6 +40,8 @@ import * as dashboard from './dashboard/index'
         dashboard.UserDashboardComponent,
         dashboard.UserNavigationSidebarComponent,
         dashboard.UserNavigationHeaderComponent,
+
+        dashboard.UserHomeComponent
     ],
     imports: [
         CommonModule, 
@@ -53,6 +57,8 @@ import * as dashboard from './dashboard/index'
         JwtHelper,
         AuthUserGuardService,
         AuthUserService,
+        UserHomeService,
+        UserBuyService,
         CookieService,
         { provide: CookieOptions, useValue: {} },
     ],

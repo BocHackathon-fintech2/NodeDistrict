@@ -10,10 +10,13 @@
                     ND
                 </div>
             </li>
-            <!-- <li [ngClass]="{active: activeRoute('token-list')}">
-                <a [routerLink]="['token-list']"><i class="fa fa-btc"></i> <span class="nav-label">Buy Tokens</span></a>
+            <li [ngClass]="{active: activeRoute('home')}">
+                <a [routerLink]="['home']"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
             </li>
-            <li [ngClass]="{active: activeRoute('my-erc721')}">
+            <li [ngClass]="{active: activeRoute('buy')}">
+                    <a [routerLink]="['buy']"><i class="fa fa-dollar"></i> <span class="nav-label">Buy / Invest</span></a>
+                </li>
+            <!-- <li [ngClass]="{active: activeRoute('my-erc721')}">
                 <a [routerLink]="['my-erc721']"><i class="fa fa-circle-o"></i> <span class="nav-label">My Tokens</span></a>
             </li>
             <li [ngClass]="{active: activeRoute('receipts')}">

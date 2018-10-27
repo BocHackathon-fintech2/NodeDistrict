@@ -3,6 +3,7 @@ var express = require('express'),
     passport = require("passport"),
     mysql = require('../../services/mysqldb'),
     jwt = require('jsonwebtoken'),
+    request = require('request'),
     Joi = require('joi');
 
 router.get('/', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
@@ -208,17 +209,76 @@ router.post('/deploy', passport.authenticate('jwt-admin',{ session: false }), (r
                     res.status(500).send(err);
                 else {
                     if(node) {
-                        
-                        sql = `UPDATE nodes SET deployment_at = ? WHERE id = '${value.id}'`
-                        mysql.updateOne(sql,[
-                            new Date().toISOString().slice(0, 19).replace('T', ' ')
-                            ], (err, changed_rows) => {
-                            if(err)
-                                res.status(500).send(err)
-                            else {
-                                res.status(200).json({meesage: "ok"});
+
+                        request.get(
+                            'http://51.136.17.64:5000/api/nodes/deploy?nodeid=1&image=ce1788a5d212',(error, response, body) => {
+                                if (!error && response.statusCode == 200) {
+                                    console.log(error);
+                                    console.log(body);
+                                    request.get(
+                                        'http://51.136.17.64:5000/api/nodes/start?nodeid=1',(error, response, body) => {}
+                                    );    
+                                      sql = `UPDATE nodes SET deployment_at = ? WHERE id = '${value.id}'`
+                                        mysql.updateOne(sql,[
+                                            new Date().toISOString().slice(0, 19).replace('T', ' ')
+                                            ], (err, changed_rows) => {
+                                            if(err)
+                                                res.status(500).send(err)
+                                            else {
+                                                res.status(200).json({meesage: "ok"});
+                                            }
+                                    })
+                                }
                             }
-                        })
+                        );
+                                                
+
+                      
+                    }
+                    else
+                        res.status(500).send(`Node not found or is already deployed`)
+                }
+            })
+        }
+    });
+});
+
+router.post('/destroy', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
+    var valid_schema = Joi.object().keys({
+        id: Joi.required()
+    });
+    Joi.validate({
+        id: req.body.id
+    }, valid_schema, (err, value) => {
+        if(err)
+            res.status(400).send("Please feel all the require fields");
+        else {
+            var sql = `SELECT * FROM nodes WHERE id='${value.id}' AND deployment_at IS NOT NULL`;
+            mysql.selectOne(sql, (err, node) => {
+                if(err)
+                    res.status(500).send(err);
+                else {
+                    if(node) {
+
+                        request.get(
+                            'http://51.136.17.64:5000/api/nodes/stop?nodeid=1',(error, response, body) => {
+                                if (!error && response.statusCode == 200) {
+                                    console.log(error);
+                                    console.log(body);
+                                    sql = `UPDATE nodes SET deployment_at = ? WHERE id = '${value.id}'`
+                                        mysql.updateOne(sql,[
+                                            null
+                                            ], (err, changed_rows) => {
+                                            if(err)
+                                                res.status(500).send(err)
+                                            else {
+                                                res.status(200).json({meesage: "ok"});
+                                            }
+                                    })
+                                }
+                            }
+                        );
+         
                     }
                     else
                         res.status(500).send(`Node not found or is already deployed`)

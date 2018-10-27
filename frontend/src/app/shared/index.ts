@@ -10,3 +10,6 @@ export * from './injectable/localstorage.injectable'
 
 export * from './services/user/auth-user.service'
 export * from './guards/auth-user-guard.service'
+
+export * from './services/user/home.service'
+export * from './services/user/buy.service'

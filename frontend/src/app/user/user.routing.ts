@@ -25,6 +25,10 @@ const routes: Routes = [
         component: dashboard.UserDashboardComponent,
         canActivate: [AuthUserGuardService],
         children: [
+            {
+                path: 'home',
+                component: dashboard.UserHomeComponent
+            }
         ],
     }
 ];

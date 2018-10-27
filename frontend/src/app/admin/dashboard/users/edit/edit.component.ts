@@ -58,7 +58,7 @@ export class UsersEditComponent implements OnInit{
             password: ['', Validators.compose([
                 this.validatePassword
             ])],
-            is_active: ['', Validators.compose([
+            is_verified: ['', Validators.compose([
             ])],
         });
     };
@@ -138,9 +138,9 @@ export class UsersEditComponent implements OnInit{
             last_name: this.form.get('last_name').value,
             email: this.form.get('email').value,
             password: this.form.get('password').value,
-            is_active: verified,
+            is_verified: verified,
         }).subscribe(res => {
-            this.router.navigate([`/users/view/${this.id}`])
+            this.router.navigate([`/admin/users/view/${this.id}`])
         }, (err) => {
             this.have_error = true;
             this.message = err._body;

@@ -114,7 +114,7 @@ export class UsersAddComponent implements OnInit{
             password: this.form.get('password').value,
             is_verified: verified,
         }).subscribe(res => {
-            this.router.navigate([`/users/view/${res.id}`])
+            this.router.navigate([`/admin/users/view/${res.id}`])
         }, (err) => {
             this.have_error = true;
             this.message = err._body;

@@ -75,4 +75,12 @@ export class NodesService {
             this.authAdminService.createAuthenticationHeaders()
         ).map(res => res.json());
     }
+
+    destroy(id) {
+        return this.http.post(
+            environment.apiUrl + `/admin/nodes/destroy`,
+            {id: id},
+            this.authAdminService.createAuthenticationHeaders()
+        ).map(res => res.json());
+    }
 };

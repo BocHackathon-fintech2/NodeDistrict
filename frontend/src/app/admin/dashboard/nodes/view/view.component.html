@@ -23,10 +23,10 @@
                 <ng-container *ngIf="obj">
                     <div class="col-xs-12 col-sm-6 text-right">
                         <ng-container *ngIf="!obj?.node.deployment_at">
-                            <a (click)="deployMethod(obj.node.id)"><button class="btn btn-w-s btn-success"><i class="fa fa-microchip"></i> Deploy</button></a>
+                            <button class="btn btn-w-s btn-success" (click)="deployMethod(obj.node.id)" [disabled]="process"><i class="fa fa-microchip"></i> Deploy</button>
                         </ng-container>
                         <ng-container *ngIf="obj?.node.deployment_at">
-                            <button class="btn btn-w-s btn-deafult" disabled><i class="fa fa-microchip"></i> Deployed</button>
+                            <button (click)="destroyMethod(obj.node.id)" class="btn btn-w-s btn-danger" [disabled]="process"><i class="fa fa-microchip"></i> Destroy</button>
                         </ng-container>
                         <a [routerLink]="['/admin/nodes/edit/' + obj.node.id]"><button class="btn btn-w-s btn-warning"><i class="fa fa-edit"></i> Edit</button></a>
                         <button class="btn btn-w-s btn-danger" (click)="deleteMethod(obj.node.id)"><i class="fa fa-trash-o"></i> Delete</button>
@@ -63,7 +63,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-6">
-                                        <label class="col-xs-12">Total Tokens</label>
+                                        <label class="col-xs-12">Total Asset Value</label>
                                         <div class="col-xs-12">
                                             <p class="form-control-static">{{ obj.node.total_tokens }}</p>
                                         </div>
@@ -90,7 +90,6 @@
                             </ng-container>
                         </div>
                         <div id="shareholders" class="tab-pane">
-                            <div id="morris-donut-admin" ></div>
                             <ng-container *ngIf="users_own_node && users_own_node.length > 0">
                                 <table class="table text-center">
                                     <thead>

@@ -79,7 +79,7 @@ router.post('/add', passport.authenticate('jwt-admin',{ session: false }), (req,
 
 router.get('/view/:id', passport.authenticate('jwt-admin',{ session: false }), (req, res) => {
     if(req.params.id) {
-        var sql = `SELECT id, first_name, last_name, email, (CASE WHEN is_active THEN 'Yes' ELSE 'No' END) AS is_verified FROM users WHERE id = '${req.params.id}' AND deleted_at IS NULL`
+        var sql = `SELECT id, first_name, last_name, email, (CASE WHEN is_verified THEN 'Yes' ELSE 'No' END) AS is_verified FROM users WHERE id = '${req.params.id}' AND deleted_at IS NULL`
         mysql.selectOne(sql, (err, user) => {
             if(err)
                 res.status(500).send(`Error: ${err}`);
@@ -98,7 +98,7 @@ router.get('/view/:id', passport.authenticate('jwt-admin',{ session: false }), (
 
 router.get('/edit/:id', passport.authenticate('jwt-admin',{ session: false }), (req, res) => {
     if(req.params.id) {
-        var sql = `SELECT id, first_name, last_name, email, is_active FROM users WHERE id = '${req.params.id}' AND deleted_at IS NULL`
+        var sql = `SELECT id, first_name, last_name, email, is_verified FROM users WHERE id = '${req.params.id}' AND deleted_at IS NULL`
         mysql.selectOne(sql, (err, user) => {
             if(err)
                 res.status(500).send(`Error: ${err}`);
@@ -128,7 +128,7 @@ router.post('/edit/', passport.authenticate('jwt-admin',{ session: false }), (re
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email : req.body.email,
-        is_active: req.body.is_verified
+        is_verified: req.body.is_verified
     }, valid_schema, (err, value) => {
         if(err) {
             res.status(400).send("Please fill all the require fields");
@@ -154,7 +154,7 @@ router.post('/edit/', passport.authenticate('jwt-admin',{ session: false }), (re
                                                 if(err)
                                                     res.status(500).send("Error occured: " + err);
                                                 else {
-                                                    sql = `UPDATE users SET first_name = ?, last_name = ? email = ?, password = ?, is_active = ? WHERE id = '${user.id}' AND deleted_at IS NULL`;
+                                                    sql = `UPDATE users SET first_name = ?, last_name = ? email = ?, password = ?, is_verified = ? WHERE id = '${user.id}' AND deleted_at IS NULL`;
                                                     mysql.updateOne(sql,[
                                                         value.first_name,
                                                         value.last_name,
@@ -194,7 +194,7 @@ router.post('/edit/', passport.authenticate('jwt-admin',{ session: false }), (re
                                     if(err)
                                         res.status(500).send("Error occured: " + err);
                                     else {
-                                        sql = `UPDATE users SET first_name = ?, last_name = ? , password = ?, is_active = ? WHERE id = '${user.id}' AND deleted_at IS NULL`;
+                                        sql = `UPDATE users SET first_name = ?, last_name = ? , password = ?, is_verified = ? WHERE id = '${user.id}' AND deleted_at IS NULL`;
                                         mysql.updateOne(sql,[
                                             value.first_name,
                                             value.last_name,
