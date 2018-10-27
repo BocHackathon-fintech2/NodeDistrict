@@ -26,7 +26,9 @@ else {
     const port = process.env.PORT;
 
     var adminAuthRouter = require('./src/routes/admin/authRoutes'),
-        adminAdminUserRouter = require('./src/routes/admin/adminUsersRoutes');
+        adminAdminUserRouter = require('./src/routes/admin/adminUsersRoutes'),
+        adminTokenRouter = require('./src/routes/admin/tokenRoutes'),
+        adminNodeRouter = require('./src/routes/admin/nodeRoutes');
 
     app.use(helmet()); // helping to secure express app
     app.use(bodyParser.json({limit: '50mb'})); // checking if a package coming as a json
@@ -50,6 +52,8 @@ else {
     
     app.use('/admin/auth', adminAuthRouter);
     app.use('/admin/admin-users', adminAdminUserRouter);
+    app.use('/admin/tokens', adminTokenRouter);
+    app.use('/admin/nodes', adminNodeRouter);
 
     app.use("/public", express.static(path.join(__dirname, 'public')));
 

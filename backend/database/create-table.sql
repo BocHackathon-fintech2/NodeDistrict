@@ -1,5 +1,6 @@
 SET FOREIGN_KEY_CHECKS=0;
 
+
 CREATE TABLE admin_users (
     id VARCHAR(36) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -30,7 +31,9 @@ CREATE TABLE users(
 CREATE TABLE tokens(
     id VARCHAR(36) NOT NULL,
     title VARCHAR(200) NOT NULL,
-    price DECIMAL(15,2) NOT NULL
+    symbol CHAR(4) NOT NULL,
+    price DECIMAL(15,2) NOT NULL,
+    deleted_at DATETIME,
     PRIMARY KEY(id)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
 
@@ -38,11 +41,9 @@ CREATE TABLE nodes(
     id VARCHAR(36) NOT NULL,
     title VARCHAR(200) NOT NULL,
     token_id VARCHAR(36) NOT NULL,
-    available_tokens DECIMAL(5,2) NOT NULL,
-    total_tokens DECIMAL(5,2) NOT NULL,
-    total_price DECIMAL(15,2) NOT NULL,
+    total_tokens DECIMAL(15,2) NOT NULL,
     deployment_at DATETIME,
-    daily_reward DECIMAL(5,2) NOT NULL,
+    daily_rewards DECIMAL(15,2) NOT NULL,
     total_rewards DECIMAL(15,2) DEFAULT 0 NOT NULL,
     is_available TINYINT(1) DEFAULT 0 NOT NULL,
     deleted_at DATETIME,
@@ -51,5 +52,8 @@ CREATE TABLE nodes(
         FOREIGN KEY  (`token_id`)
         REFERENCES `tokens`(`id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+insert into `admin_users` (`id`, `email`, `password`, `first_name`, `last_name`, `is_active`, `token`, `created_at`, `deleted_at`) values('123232324324242424242ffvdsdsv','daniel.chrysostomos@gmail.com','$2a$10$G7JdxwyVGIi5yj7c7KwHWe09nUlU.a2xTJpUA4ZSp3gGuLmSDNDU.','Chrysostomos','Daniel','1','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyMzIzMjMyNDMyNDI0MjQyNDI0MmZmdmRzZHN2IiwiaWF0IjoxNTQwNTM3MDg5LCJleHAiOjE1NDA2MjM0ODl9.4poBK5rh20GHOonhy5qLOiiNL97tzxKU83shf7v5BOw','2018-06-04 21:38:20',NULL);
+
 
 SET FOREIGN_KEY_CHECKS=1;

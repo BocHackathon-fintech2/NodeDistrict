@@ -6,42 +6,57 @@ var express = require('express'),
     Joi = require('joi');
 
 router.get('/', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
-    var sql = `SELECT * FROM tokens WHERE tokens.deleted_at IS NULL ORDER BY title ASC`;
-    mysql.select(sql, (err, tokens) => {
+    var sql = `SELECT nodes.*, tokens.symbol FROM nodes 
+            INNER JOIN tokens ON tokens.id = nodes.token_id
+            WHERE nodes.deleted_at IS NULL AND tokens.deleted_at IS NULL ORDER BY title ASC`;
+    mysql.select(sql, (err, nodes) => {
         if(err)
             res.status(500).send(`Error: ${err}`);
         else {
-            if(tokens && tokens.length > 0)
-                res.status(200).send(tokens)
+            if(nodes && nodes.length > 0)
+                res.status(200).send(nodes)
             else
-                res.status(400).send(`Tokens not found!`);
+                res.status(400).send(`Nodes not found!`);
         }
     })
 });
 
+router.get('/add', passport.authenticate('jwt-admin',{ session: false }), (req, res) => {
+    var sql = `SELECT tokens.* FROM tokens WHERE tokens.deleted_at IS NULL ORDER BY title ASC`
+    mysql.select(sql, (err, tokens) => {
+        if(err)
+            res.status(500).send(err)
+        else
+            res.status(200).json({tokens: tokens})
+    })
+})
+
 router.post('/add', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
     var valid_schema = Joi.object().keys({
-        title: Joi.string().max(30).required(),
-        symbol: Joi.string().max(4).required(),
-        price: Joi.required()
+        title: Joi.string().required(),
+        token_id: Joi.string().required(),
+        total_tokens: Joi.required(),
+        daily_rewards: Joi.required()
     });
     Joi.validate({
         title: req.body.title,
-        symbol: req.body.symbol,
-        price: req.body.price
+        token_id: req.body.token_id,
+        total_tokens: req.body.total_tokens,
+        daily_rewards: req.body.daily_rewards
     }, valid_schema, (err, value) => {
         if(err)
             res.status(400).send(err.details[0].message);
         else {
-            mysql.insertOne("tokens",{
+            mysql.insertOne("nodes",{
                 title: value.title,
-                symbol: value.symbol,
-                price: value.price
-            }, (err, token_id) => {
+                token_id: value.token_id,
+                total_tokens: value.total_tokens,
+                daily_rewards: value.daily_rewards,
+            }, (err, node_id) => {
                 if(err)
                     res.status(500).send(err);
                 else {
-                    res.status(200).json({id : token_id});
+                    res.status(200).json({id : node_id});
                 }
             })
         }
@@ -51,7 +66,9 @@ router.post('/add', passport.authenticate('jwt-admin',{ session: false }), (req,
 
 router.get('/view/:id', passport.authenticate('jwt-admin',{ session: false }), (req, res) => { 
     if(req.params.id) {
-        var sql = `SELECT * FROM tokens WHERE id = '${req.params.id}' AND deleted_at IS NULL`
+        var sql = `SELECT nodes.*, tokens.title as token_title, tokens.symbol AS token_symbol FROM nodes
+            INNER JOIN tokens ON tokens.id = nodes.token_id
+            WHERE nodes.id = '${req.params.id}' AND tokens.deleted_at IS NULL AND nodes.deleted_at IS NULL`
         mysql.selectOne(sql, (err, token) => {
             if(err)
                 res.status(500).send(`Error: ${err}`);
@@ -111,7 +128,7 @@ router.post('/edit', passport.authenticate('jwt-admin',{ session: false }), (req
                     if(!token)
                         res.status(400).send("Token not found");
                     else {
-                        var sql = `UPDATE tokens SET title = ?, symbol = ?, price = ? WHERE id = '${value.id}' AND deleted_at IS NULL`;
+                        var sql = `UPDATE tokens SET title = ?, symbol = ? WHERE id = '${value.id}' AND deleted_at IS NULL`;
                         mysql.updateOne(sql,[
                             value.title,
                             value.symbol,
