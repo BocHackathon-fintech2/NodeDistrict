@@ -15,5 +15,4 @@ export * from './tokens/edit/edit.component'
 export * from './nodes/nodes.component'
 export * from './nodes/add/add.component'
 export * from './nodes/view/view.component'
-export * from './nodes/edit/edit.component'
 

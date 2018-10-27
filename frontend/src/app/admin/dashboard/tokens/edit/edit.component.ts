@@ -78,9 +78,9 @@ export class TokensEditComponent implements OnInit{
     edit(id) {
         this.service.edit(id).subscribe(data => {
             this.obj = data;
-            this.form.controls['title'].setValue(data.token.title);
-            this.form.controls['symbol'].setValue(data.token.symbol);
-            this.form.controls['price'].setValue(data.token.price);
+            this.form.controls['title'].setValue(data.title);
+            this.form.controls['symbol'].setValue(data.symbol);
+            this.form.controls['price'].setValue(data.price);
 
         }, (err) => {
             this.have_error = true;
@@ -95,7 +95,7 @@ export class TokensEditComponent implements OnInit{
         this.service.saveEdit({
             id: this.id,
             title : this.form.get('title').value,
-            coin_id : this.form.get('coin_id').value,
+            symbol : this.form.get('symbol').value,
             price: this.form.get('price').value
         }).subscribe(res => {
             this.router.navigate([`/admin/tokens/view/${this.id}`])

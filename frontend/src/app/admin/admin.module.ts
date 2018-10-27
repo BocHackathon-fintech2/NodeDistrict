@@ -17,7 +17,8 @@ import {
     AuthAdminService,
     AuthAdminGuardService,
     AdminUsersService,
-    TokensService
+    TokensService,
+    NodesService
 } from '../shared/index'
 
 import {
@@ -46,7 +47,11 @@ import { BrowserXhr } from '@angular/http';
         dashboard.TokensComponent,
         dashboard.TokensAddComponent,
         dashboard.TokensViewComponent,
-        dashboard.TokensEditComponent
+        dashboard.TokensEditComponent,
+
+        dashboard.NodesComponent,
+        dashboard.NodesAddComponent,
+        dashboard.NodesViewComponent
 
     ],
     imports: [
@@ -63,7 +68,8 @@ import { BrowserXhr } from '@angular/http';
         AuthAdminGuardService,
         AuthAdminService,
         AdminUsersService,
-        TokensService
+        TokensService,
+        NodesService
     ],
     bootstrap: [AdminComponent]
 })

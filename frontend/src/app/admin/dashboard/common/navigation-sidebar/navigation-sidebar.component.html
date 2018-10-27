@@ -12,10 +12,13 @@
             </li>
         
             <li [ngClass]="{active: activeRoute('tokens')}">
-                <a [routerLink]="['/tokens']"><i class="fa fa-btc"></i> <span class="nav-label">Tokens</span></a>
+                <a [routerLink]="['/admin/tokens']"><i class="fa fa-btc"></i> <span class="nav-label">Tokens</span></a>
+            </li>
+            <li [ngClass]="{active: activeRoute('nodes')}">
+                <a [routerLink]="['/admin/nodes']"><i class="fa fa-microchip"></i> <span class="nav-label">Nodes</span></a>
             </li>
             <li [ngClass]="{active: activeRoute('admins')}">
-                <a [routerLink]="['/admins']"><i class="fa fa-user-circle-o"></i> <span class="nav-label">Admin Users</span></a>
+                <a [routerLink]="['/admin/admins']"><i class="fa fa-user-circle-o"></i> <span class="nav-label">Admin Users</span></a>
             </li>
         </ul>
       

@@ -18,12 +18,12 @@ export class AuthAdminGuardService implements CanActivate {
         this.token = localStorage.getItem('admin_token')
         this.admin = localStorage.getItem('admin');
         if(!this.checkLogin()) {
-            this.router.navigate(['auth/login']);
+            this.router.navigate(['admin/auth/login']);
             return false;
         }
         else {
            if(!this.checkActive()) {
-                this.router.navigate(['auth/login']);
+                this.router.navigate(['admin/auth/login']);
                 return false;
            }
            else

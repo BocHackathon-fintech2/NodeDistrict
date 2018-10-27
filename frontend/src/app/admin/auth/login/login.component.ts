@@ -63,7 +63,7 @@ import { AuthAdminService } from '../../../shared/services/admin/auth-admin.serv
         // Function to send login data to API
         this.authAdminService.login(user).subscribe(res => {
             this.authAdminService.storeUserData(res.token,res.admin, (err, done) => {
-                this.router.navigate(['cows']);
+                this.router.navigate(['admin/nodes']);
             });
         }, (err) => {
             this.messageClass = 'alert alert-danger'; // Set bootstrap error class

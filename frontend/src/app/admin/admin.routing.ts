@@ -70,10 +70,6 @@ const routes: Routes = [
                 path: 'nodes/view/:id',
                 component: dashboard.NodesViewComponent
             },
-            {
-                path: 'nodes/edit/:id',
-                component: dashboard.NodesEditComponent
-            }
         ]
     }
 ];

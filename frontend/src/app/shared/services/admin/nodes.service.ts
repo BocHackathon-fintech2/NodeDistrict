@@ -60,6 +60,14 @@ export class NodesService {
         ).map(res => res.json())
     }
 
+    delete(id) {
+        return this.http.post(
+            environment.apiUrl + `/admin/nodes/delete`,
+            {id: id},
+            this.authAdminService.createAuthenticationHeaders()
+        ).map(res => res.json());
+    }
+
     deploy(id) {
         return this.http.post(
             environment.apiUrl + `/admin/nodes/deploy`,

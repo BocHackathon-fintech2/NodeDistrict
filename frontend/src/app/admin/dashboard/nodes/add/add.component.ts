@@ -3,10 +3,7 @@ import {Location} from '@angular/common';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms'
 
-import { FileUploader } from 'ng2-file-upload';
 import { NodesService } from '../../../../shared/services/admin/nodes.service'
-
-import { environment } from '../../../../../environments/environment'
 
 declare var jQuery:any;
 @Component({
@@ -35,6 +32,7 @@ export class NodesAddComponent implements OnInit{
 
     ngOnInit() {
         this.createForm();
+        this.get();
     }
 
     createForm() {
@@ -45,34 +43,27 @@ export class NodesAddComponent implements OnInit{
             token_id: ['', Validators.compose([
                 Validators.required
             ])],
-            available_tokens: ['', Validators.compose([
-                Validators.required
-            ])],
-            daily_tokens: ['', Validators.compose([
-                Validators.required
-            ])],
             total_tokens: ['', Validators.compose([
                 Validators.required
             ])],
+            daily_rewards:  ['', Validators.compose([
+                Validators.required
+            ])]
         });
     };
 
     disableForm() {
         this.form.controls['title'].disable();
         this.form.controls['token_id'].disable();
-        this.form.controls['available_tokens'].disable();
         this.form.controls['total_tokens'].disable();
         this.form.controls['daily_rewards'].disable();
-        this.form.controls['total_rewards'].disable();
     }
 
     enableForm() {
         this.form.controls['title'].enable();
         this.form.controls['token_id'].enable();
-        this.form.controls['available_tokens'].enable();
         this.form.controls['total_tokens'].enable();
         this.form.controls['daily_rewards'].enable();
-        this.form.controls['total_rewards'].enable();
     }
 
     get() {
@@ -93,13 +84,11 @@ export class NodesAddComponent implements OnInit{
 
         this.service.saveAdd({
             title : this.form.get('title').value,
-            token_id: this.form.get('token_id'),
-            available_tokens: this.form.get('available_tokens'),
-            total_tokens: this.form.get('total_tokens'),
-            daily_rewards: this.form.get('daily_rewards'),
-            total_rewards: this.form.get('total_rewards')
+            token_id: this.form.get('token_id').value,
+            total_tokens: this.form.get('total_tokens').value,
+            daily_rewards: this.form.get('daily_rewards').value
         }).subscribe(res => {
-            this.router.navigate([`/admin/tokens/view/${res.id}`])
+            this.router.navigate([`/admin/nodes/view/${res.id}`])
         }, (err) => {
             this.have_error = true;
             this.message = err._body;

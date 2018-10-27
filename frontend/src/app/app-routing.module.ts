@@ -5,7 +5,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
     {
-        path: '',
+        path: 'admin',
         loadChildren: 'app/admin/admin.module#AdminModule'
     }
 ]

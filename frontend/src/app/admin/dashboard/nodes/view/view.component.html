@@ -1,0 +1,83 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Nodes</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a [routerLink]="['/admin/nodes']">Nodes</a>
+                </li>
+                <li class="active">
+                    <strong>View Node</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+    
+        </div>
+    </div>
+    <ng-container *ngIf="obj">
+        <div class="row wrapper wrapper-content">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title col-xs-12">
+                    <div class="col-xs-12 col-sm-6 text-left">
+                        <h5>View Node</h5>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 text-right">
+                        <a (click)="deployMethod(obj.id)" *ngIf="!obj.deployment_at"><button class="btn btn-w-s btn-success"><i class="fa fa-hand-o-up"></i> Deploy</button></a>
+                        <button class="btn btn-w-s btn-success" *ngIf="obj.deployment_at"><i class="fa fa-hand-o-down"></i> Deployed</button>
+                        <a [routerLink]="['/admin/nodes/edit/' + obj.id]"><button class="btn btn-w-s btn-warning"><i class="fa fa-edit"></i> Edit</button></a>
+                        <button class="btn btn-w-s btn-danger" (click)="deleteMethod(obj.id)"><i class="fa fa-trash-o"></i> Delete</button>
+                    </div>
+                </div>
+                <div class="ibox-content col-xs-12">
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#general">General</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="general" class="tab-pane active">
+                                <div class="panel-body">
+                                
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="col-xs-12">Title</label>
+                                        <div class="col-xs-12">
+                                            <p class="form-control-static">{{ obj.title }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="col-xs-12">Token</label>
+                                        <div class="col-xs-12">
+                                            <p class="form-control-static">{{ obj.token_title + " ("+ obj.token_symbol + ")" }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="col-xs-12">Total Tokens</label>
+                                        <div class="col-xs-12">
+                                            <p class="form-control-static">{{ obj.total_tokens }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="col-xs-12">Daily Rewards</label>
+                                        <div class="col-xs-12">
+                                            <p class="form-control-static">{{ obj.daily_rewards }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="col-xs-12">Total Rewards</label>
+                                        <div class="col-xs-12">
+                                            <p class="form-control-static">{{ obj.total_rewards }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="col-xs-12">Deployment At</label>
+                                        <div class="col-xs-12">
+                                            <p class="form-control-static">{{ obj.deployment_at }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>

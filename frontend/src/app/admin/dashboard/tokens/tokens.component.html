@@ -39,7 +39,7 @@
                                 <tr *ngFor="let obj of array">
                                     <td><a routerLink='view/{{ obj.id }}'>{{ obj.title }}</a></td>
                                     <td>{{ obj.symbol }}</td>
-                                    <td>{{ obj.price }}</td>
+                                    <td>&euro;{{ obj.price }}</td>
                                 </tr>
                             </tbody>
                             <tfoot>
