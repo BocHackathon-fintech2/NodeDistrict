@@ -36,6 +36,7 @@ export class UserBuyComponent implements OnInit {
 
     ngOnInit(){
     }
+    
     buy(node_id, amount) {
         console.log(amount)
         this.closeModal();

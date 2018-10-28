@@ -4,8 +4,12 @@ var express = require('express'),
     mysql = require('../../services/mysqldb'),
     jwt = require('jsonwebtoken'),
     request = require('request'),
+    Web3 = require('web3'),
+    EthereumTx = require('ethereumjs-tx'),
     Joi = require('joi');
 
+const receipt_ABI = require('../../services/receiptABI.json'),
+      web3 = new Web3(new Web3.providers.HttpProvider(process.env.HOST_ENDPOINT));
 
 router.get('/', passport.authenticate('jwt-user',{ session: false }), (req, res) => { 
     var sql = `SELECT nodes.id, nodes.title, nodes.total_tokens,nodes.daily_rewards,SUM(users_own_nodes.amount) AS total_user_amount FROM nodes 
@@ -85,7 +89,7 @@ router.post('/withdrawl', passport.authenticate('jwt-user',{ session: false }), 
             res.status(500).send(err)
         else {
             if(users_nodes_rewards.length > 0) {
-                var total_money = 0;
+                let total_money = 0;
                 for(var i=0; i < users_nodes_rewards.length; i++) {
                     total_money += users_nodes_rewards[i].amount
                 }
@@ -108,6 +112,35 @@ router.post('/withdrawl', passport.authenticate('jwt-user',{ session: false }), 
                     });
                 });
                 return Promise.all(actions).then((withdrawls) => {
+                    var receipt_contract = new web3.eth.Contract(receipt_ABI, process.env.RECEIPT_ADDRESS);
+                    web3.eth.getTransactionCount(process.env.ADMIN_PUBLIC_ADDRESS, (err, count_val) => {
+                         var rawTransactionObj = {
+                            from: process.env.ADMIN_PUBLIC_ADDRESS,
+                            to: process.env.RECEIPT_ADDRESS,
+                            nonce: count_val,
+                            gasPrice: web3.utils.toHex(99000000000),
+                            gasLimit: web3.utils.toHex(100000),
+                            value: "0x0",
+                            data : receipt_contract.methods.addPersonDetails(
+                                web3.utils.fromAscii(req.user.id),
+                                web3.utils.fromAscii(total_money)
+                            ).encodeABI()
+                        }
+                        var privKey = new Buffer(process.env.ADMIN_PRIVATE_KEY.toLowerCase().replace('0x', ''), 'hex');
+                        var tx = new EthereumTx(rawTransactionObj);
+                        tx.sign(privKey);
+                        var serializedTx = tx.serialize();
+                        web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex'), (err, hash) => {
+                            if (err)
+                                return res.status(500).send('Oops! Something went wrong. Please try again!', null)
+                            else {
+                                
+                            }
+
+                           
+                        });
+
+                    });
                     res.status(200).json({
                         withdrawls: withdrawls
                     })
@@ -121,6 +154,5 @@ router.post('/withdrawl', passport.authenticate('jwt-user',{ session: false }), 
         }
     })
 });
-
 
 module.exports = router;

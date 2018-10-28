@@ -26,6 +26,7 @@ export class UserHomeComponent implements OnInit {
     portofolio = []
     chart_token = 'WGR'
     available_withdrawl = false;
+    ethereum_link = false;
     constructor(
         private formBuilder: FormBuilder,
         private service: UserHomeService,
@@ -110,6 +111,7 @@ export class UserHomeComponent implements OnInit {
                             this.history_rewards[c].withdrawl_at = res.withdrawls[i].withdraw_at
                    }
                    this.available_withdrawl = false;
+                   this.ethereum_link = true;
                }
             }, (err) => {
                 this.have_error = true;

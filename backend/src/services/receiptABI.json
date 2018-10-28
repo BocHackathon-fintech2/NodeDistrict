@@ -1,0 +1,57 @@
+[
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "personCounts",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "getPersonDetails",
+		"outputs": [
+			{
+				"name": "user_id",
+				"type": "bytes32"
+			},
+			{
+				"name": "amount",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "user_id",
+				"type": "bytes32"
+			},
+			{
+				"name": "amount",
+				"type": "bytes32"
+			}
+		],
+		"name": "addPersonDetails",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
