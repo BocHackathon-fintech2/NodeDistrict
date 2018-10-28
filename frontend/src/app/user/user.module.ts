@@ -41,7 +41,8 @@ import * as dashboard from './dashboard/index'
         dashboard.UserNavigationSidebarComponent,
         dashboard.UserNavigationHeaderComponent,
 
-        dashboard.UserHomeComponent
+        dashboard.UserHomeComponent,
+        dashboard.UserBuyComponent
     ],
     imports: [
         CommonModule, 

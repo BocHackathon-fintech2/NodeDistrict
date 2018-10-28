@@ -377,14 +377,20 @@ export function closeModal(id_element) {
   jQuery(`#${id_element}`).modal('hide');
 }
 
-export function donutChart(array) {
-  $(document).ready(function () {
+export function donutChart(data_array) {
 
+  $(document).ready(function () {
+    let new_array = []
+    for(var i=0; i < data_array.length; i++) {
+      new_array.push({
+        label: data_array[i].label,
+        value: data_array[i].value
+      })
+    }
     Morris.Donut({
-        element: 'morris-donut-admin',
-        data: [{ label: "Download Sales", value: 12 },
-            { label: "In-Store Sales", value: 30 },
-            { label: "Mail-Order Sales", value: 20 } ],
+        element: 'morris-donut',
+        data: new_array,
+        formatter: function (y) { return y + "%" },
         resize: true,
         colors: ['#87d6c6', '#54cdb4','#1ab394'],
     });
@@ -416,6 +422,29 @@ export function sparkline() {
     fillColor: "#ffffff"
 });
   })
+}
+
+export function sparkline5() {
+  $("#sparkline0").sparkline([0, 1], {
+    type: 'pie',
+    height: '140',
+    sliceColors: ['#1ab394', '#F5F5F5']
+  });
+  $("#sparkline1").sparkline([2, 2], {
+    type: 'pie',
+    height: '140',
+    sliceColors: ['#1ab394', '#F5F5F5']
+  });
+  $("#sparkline2").sparkline([1, 4], {
+    type: 'pie',
+    height: '140',
+    sliceColors: ['#1ab394', '#F5F5F5']
+  });
+  $("#sparkline3").sparkline([2, 4], {
+    type: 'pie',
+    height: '140',
+    sliceColors: ['#1ab394', '#F5F5F5']
+  });
 }
 
 export function oneLineChart() {
@@ -789,19 +818,402 @@ export function oneLineChart() {
       "value": 0.129081
     }
   ]
+
+  var tezos = [
+    {
+      "day": "Oct 27, 2018",
+      "value": 1.35
+    },
+    {
+      "day": "Oct 26, 2018",
+      "value": 1.37
+    },
+    {
+      "day": "Oct 25, 2018",
+      "value": 1.35
+    },
+    {
+      "day": "Oct 24, 2018",
+      "value": 1.34
+    },
+    {
+      "day": "Oct 23, 2018",
+      "value": 1.38
+    },
+    {
+      "day": "Oct 22, 2018",
+      "value": 1.41
+    },
+    {
+      "day": "Oct 21, 2018",
+      "value": 1.34
+    },
+    {
+      "day": "Oct 20, 2018",
+      "value": 1.31
+    },
+    {
+      "day": "Oct 19, 2018",
+      "value": 1.31
+    },
+    {
+      "day": "Oct 18, 2018",
+      "value": 1.32
+    },
+    {
+      "day": "Oct 17, 2018",
+      "value": 1.4
+    },
+    {
+      "day": "Oct 16, 2018",
+      "value": 1.47
+    },
+    {
+      "day": "Oct 15, 2018",
+      "value": 1.37
+    },
+    {
+      "day": "Oct 14, 2018",
+      "value": 1.22
+    },
+    {
+      "day": "Oct 13, 2018",
+      "value": 1.24
+    },
+    {
+      "day": "Oct 12, 2018",
+      "value": 1.25
+    },
+    {
+      "day": "Oct 11, 2018",
+      "value": 1.24
+    },
+    {
+      "day": "Oct 10, 2018",
+      "value": 1.37
+    },
+    {
+      "day": "Oct 09, 2018",
+      "value": 1.4
+    },
+    {
+      "day": "Oct 08, 2018",
+      "value": 1.36
+    },
+    {
+      "day": "Oct 07, 2018",
+      "value": 1.32
+    },
+    {
+      "day": "Oct 06, 2018",
+      "value": 1.34
+    },
+    {
+      "day": "Oct 05, 2018",
+      "value": 1.32
+    },
+    {
+      "day": "Oct 04, 2018",
+      "value": 1.3
+    },
+    {
+      "day": "Oct 03, 2018",
+      "value": 1.31
+    },
+    {
+      "day": "Oct 02, 2018",
+      "value": 1.33
+    },
+    {
+      "day": "Oct 01, 2018",
+      "value": 1.35
+    },
+    {
+      "day": "Sep 30, 2018",
+      "value": 1.42
+    },
+    {
+      "day": "Sep 29, 2018",
+      "value": 1.44
+    },
+    {
+      "day": "Sep 28, 2018",
+      "value": 1.42
+    },
+    {
+      "day": "Sep 27, 2018",
+      "value": 1.44
+    },
+    {
+      "day": "Sep 26, 2018",
+      "value": 1.45
+    },
+    {
+      "day": "Sep 25, 2018",
+      "value": 1.47
+    },
+    {
+      "day": "Sep 24, 2018",
+      "value": 1.56
+    },
+    {
+      "day": "Sep 23, 2018",
+      "value": 1.66
+    },
+    {
+      "day": "Sep 22, 2018",
+      "value": 1.66
+    },
+    {
+      "day": "Sep 21, 2018",
+      "value": 1.66
+    },
+    {
+      "day": "Sep 20, 2018",
+      "value": 1.71
+    },
+    {
+      "day": "Sep 19, 2018",
+      "value": 1.55
+    },
+    {
+      "day": "Sep 18, 2018",
+      "value": 1.51
+    },
+    {
+      "day": "Sep 17, 2018",
+      "value": 1.5
+    },
+    {
+      "day": "Sep 16, 2018",
+      "value": 1.66
+    },
+    {
+      "day": "Sep 15, 2018",
+      "value": 1.63
+    },
+    {
+      "day": "Sep 14, 2018",
+      "value": 1.57
+    },
+    {
+      "day": "Sep 13, 2018",
+      "value": 1.35
+    },
+    {
+      "day": "Sep 12, 2018",
+      "value": 1.26
+    },
+    {
+      "day": "Sep 11, 2018",
+      "value": 1.31
+    },
+    {
+      "day": "Sep 10, 2018",
+      "value": 1.41
+    },
+    {
+      "day": "Sep 09, 2018",
+      "value": 1.2
+    },
+    {
+      "day": "Sep 08, 2018",
+      "value": 1.15
+    },
+    {
+      "day": "Sep 07, 2018",
+      "value": 1.23
+    },
+    {
+      "day": "Sep 06, 2018",
+      "value": 1.24
+    },
+    {
+      "day": "Sep 05, 2018",
+      "value": 1.3
+    },
+    {
+      "day": "Sep 04, 2018",
+      "value": 1.44
+    },
+    {
+      "day": "Sep 03, 2018",
+      "value": 1.42
+    },
+    {
+      "day": "Sep 02, 2018",
+      "value": 1.39
+    },
+    {
+      "day": "Sep 01, 2018",
+      "value": 1.41
+    },
+    {
+      "day": "Aug 31, 2018",
+      "value": 1.36
+    },
+    {
+      "day": "Aug 30, 2018",
+      "value": 1.36
+    },
+    {
+      "day": "Aug 29, 2018",
+      "value": 1.37
+    },
+    {
+      "day": "Aug 28, 2018",
+      "value": 1.38
+    },
+    {
+      "day": "Aug 27, 2018",
+      "value": 1.35
+    },
+    {
+      "day": "Aug 26, 2018",
+      "value": 1.33
+    },
+    {
+      "day": "Aug 25, 2018",
+      "value": 1.36
+    },
+    {
+      "day": "Aug 24, 2018",
+      "value": 1.33
+    },
+    {
+      "day": "Aug 23, 2018",
+      "value": 1.32
+    },
+    {
+      "day": "Aug 22, 2018",
+      "value": 1.29
+    },
+    {
+      "day": "Aug 21, 2018",
+      "value": 1.36
+    },
+    {
+      "day": "Aug 20, 2018",
+      "value": 1.43
+    },
+    {
+      "day": "Aug 19, 2018",
+      "value": 1.37
+    },
+    {
+      "day": "Aug 18, 2018",
+      "value": 1.33
+    },
+    {
+      "day": "Aug 17, 2018",
+      "value": 1.38
+    },
+    {
+      "day": "Aug 16, 2018",
+      "value": 1.3
+    },
+    {
+      "day": "Aug 15, 2018",
+      "value": 1.29
+    },
+    {
+      "day": "Aug 14, 2018",
+      "value": 1.25
+    },
+    {
+      "day": "Aug 13, 2018",
+      "value": 1.3
+    },
+    {
+      "day": "Aug 12, 2018",
+      "value": 1.45
+    },
+    {
+      "day": "Aug 11, 2018",
+      "value": 1.52
+    },
+    {
+      "day": "Aug 10, 2018",
+      "value": 1.53
+    },
+    {
+      "day": "Aug 09, 2018",
+      "value": 1.67
+    },
+    {
+      "day": "Aug 08, 2018",
+      "value": 1.54
+    },
+    {
+      "day": "Aug 07, 2018",
+      "value": 1.69
+    },
+    {
+      "day": "Aug 06, 2018",
+      "value": 1.78
+    },
+    {
+      "day": "Aug 05, 2018",
+      "value": 1.85
+    },
+    {
+      "day": "Aug 04, 2018",
+      "value": 1.87
+    },
+    {
+      "day": "Aug 03, 2018",
+      "value": 1.83
+    },
+    {
+      "day": "Aug 02, 2018",
+      "value": 1.66
+    },
+    {
+      "day": "Aug 01, 2018",
+      "value": 1.82
+    },
+    {
+      "day": "Jul 31, 2018",
+      "value": 1.89
+    },
+    {
+      "day": "Jul 30, 2018",
+      "value": 2.08
+    },
+    {
+      "day": "Jul 29, 2018",
+      "value": 2.07
+    },
+    {
+      "day": "Jul 28, 2018",
+      "value": 2.06
+    }
+  ]
+
   let new_array = []
+  let new_array2 = []
 
   $(document).ready(function() {
     for(var i=0; i < wagerr.length; i++) {
       
-      var mydate = new Date(wagerr[i].day).toISOString()
+      var mydate = new Date(wagerr[i].day).toISOString().replace(/T/, ' ').substr(0, 19)
       new_array.push({
         year: mydate,
         value: wagerr[i].value
       })
     }
-      Morris.Line({
-        element: 'morris-one-line-chart',
+
+    for(var i=0; i < wagerr.length; i++) {
+      
+      var mydate2 = new Date(tezos[i].day).toISOString().replace(/T/, ' ').substr(0, 19)
+      new_array2.push({
+        year: mydate2,
+        value: tezos[i].value
+      })
+    }
+
+    Morris.Line({
+        element: 'morris-one-line-chart1',
             data: new_array,
         xkey: 'year',
         ykeys: ['value'],
@@ -811,6 +1223,40 @@ export function oneLineChart() {
         lineColors: ['#1ab394'],
         pointSize:2,
     });
+
+  $('ul.nav a').on('shown.bs.tab', function(e){
+    if ($(e.target).attr('href') == '#tezos-tab' && $('#morris-one-line-chart2').html().length == 0 
+      || $(e.target).attr('href') == '#wagerr-tab' && $('#morris-one-line-chart1').html().length == 0  ) {
+      if($(e.target).attr('href') == '#wagerr-tab') {
+        Morris.Line({
+          element: 'morris-one-line-chart1',
+              data: new_array,
+          xkey: 'year',
+          ykeys: ['value'],
+          resize: true,
+          lineWidth:2,
+          labels: ['Value'],
+          lineColors: ['#1ab394'],
+          pointSize:2,
+      });
+      }
+      else {
+        Morris.Line({
+          element: 'morris-one-line-chart2',
+            data: new_array2,
+          xkey: 'year',
+          ykeys: ['value'],
+          resize: true,
+          lineWidth:2,
+          labels: ['Value'],
+          lineColors: ['#1ab394'],
+          pointSize:2,
+      });
+      }
+
+    }
+  });
+
   })
 
 }

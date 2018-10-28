@@ -4,3 +4,4 @@ export * from './common/navigation-header/navigation-header.component'
 export * from './common/footer/footer.component'
 
 export * from './home/home.component'
+export * from './buy/buy.component'

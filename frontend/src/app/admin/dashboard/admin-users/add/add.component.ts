@@ -49,8 +49,7 @@ export class AdminUsersAddComponent implements OnInit{
                 this.validateEmail // Custom validation
             ])],
             password: ['', Validators.compose([
-                Validators.required,
-                this.validatePassword
+                Validators.required
             ])],
             is_active: ['', Validators.compose([
             ])]
@@ -66,17 +65,6 @@ export class AdminUsersAddComponent implements OnInit{
         else
             return { 'validateEmail': true } // Return as invalid email
     }
-
-    validatePassword(controls) {
-        // Create a regular expression
-        const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
-        // Test password against regular expression
-        if (regExp.test(controls.value))
-            return null; // Return as valid password
-        else
-            return { 'validatePassword': true } // Return as invalid password
-    }
-
 
     disableForm() {
         this.form.controls['first_name'].disable();

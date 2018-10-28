@@ -28,6 +28,10 @@ const routes: Routes = [
             {
                 path: 'home',
                 component: dashboard.UserHomeComponent
+            },
+            {
+                path: 'buy',
+                component: dashboard.UserBuyComponent
             }
         ],
     }

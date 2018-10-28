@@ -29,9 +29,36 @@
                         </div>
                     </div>
                 </div>
+                <style>
+                    .display_chart {
+                        display: none !important;
+                    }
+                </style>
                 <div class="col-xs-12 col-sm-8">
-                    <h2 class="text-center">Asset Performance</h2>
-                    <div id="morris-one-line-chart"></div>
+                    <div class="col-xs-12">
+                        <h2 class="text-center">Asset Performance</h2>
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#wagerr-tab" data-toggle="tab">Wagerr</a>
+                            </li>
+                            <li>
+                                <a href="#tezos-tab" data-toggle="tab">Tezos</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div id="wagerr-tab" class="tab-pane active">
+                            <h3 class="text-center">Wagerr Performance</h3>
+                            <div id="morris-one-line-chart1"></div>
+                        </div>
+                        <div id="tezos-tab" class="tab-pane">
+                            <h3 class="text-center">Tezos Performance</h3>
+                            <div id="morris-one-line-chart2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div id="morris-donut"></div>
                 </div>
                 <div class="ibox">
                     <div class="ibox-content row">
@@ -65,6 +92,11 @@
                                         </ng-container>
                                     </tbody>
                                 </table>
+                                <ng-container *ngIf="available_withdrawl">
+                                    <div class="col-xs-12 text-center">
+                                        <button class="btn btn-info" (click)="withdraw()">Withdraw</button>
+                                    </div>
+                                </ng-container>
                             </div>
                         </div>
                     </div>

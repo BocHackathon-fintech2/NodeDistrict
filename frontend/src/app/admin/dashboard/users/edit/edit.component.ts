@@ -56,7 +56,6 @@ export class UsersEditComponent implements OnInit{
                 this.validateEmail // Custom validation
             ])],
             password: ['', Validators.compose([
-                this.validatePassword
             ])],
             is_verified: ['', Validators.compose([
             ])],
@@ -72,21 +71,6 @@ export class UsersEditComponent implements OnInit{
         else
             return { 'validateEmail': true } // Return as invalid email
     }
-
-    validatePassword(controls) {
-        // Create a regular expression
-        if(controls.value != "") {
-            const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
-            // Test password against regular expression
-            if (regExp.test(controls.value))
-                return null; // Return as valid password
-            else
-                return { 'validatePassword': true } // Return as invalid password
-        }
-        else
-            return null;
-    }
-
 
     disableForm() {
         this.form.controls['first_name'].disable();

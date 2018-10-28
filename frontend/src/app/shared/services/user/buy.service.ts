@@ -21,9 +21,9 @@ export class UserBuyService {
         ).map(res => res.json());
     }
 
-    save(data) {
+    buy(data) {
         return this.http.post(
-            environment.apiUrl + `/user/buy/post`,
+            environment.apiUrl + `/user/buy/buy`,
             data,
             this.authUserService.createAuthenticationHeaders()
         ).map(res => res.json())

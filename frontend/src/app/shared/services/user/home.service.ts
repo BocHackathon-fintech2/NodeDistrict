@@ -21,10 +21,10 @@ export class UserHomeService {
         ).map(res => res.json());
     }
 
-    save(data) {
+    withdrawl() {
         return this.http.post(
-            environment.apiUrl + `/user/home/post`,
-            data,
+            environment.apiUrl + `/user/buy/withdrawl`,
+            {},
             this.authUserService.createAuthenticationHeaders()
         ).map(res => res.json())
     }

@@ -8,7 +8,8 @@ var express = require('express'),
 
 router.get('/', passport.authenticate('jwt-user',{ session: false }), (req, res) => { 
     var sql = `SELECT nodes.id,SUM(users_own_nodes.amount) AS total_amount,
-            nodes.total_tokens AS node_total_tokens, nodes.daily_rewards FROM users_own_nodes 
+            nodes.total_tokens AS node_total_tokens, nodes.daily_rewards, 
+            nodes.token_id, tokens.symbol AS token_symbol FROM users_own_nodes 
             INNER JOIN nodes ON nodes.id = users_own_nodes.node_id
             INNER JOIN tokens ON tokens.id = nodes.token_id
             WHERE users_own_nodes.user_id = '${req.user.id}' AND nodes.deleted_at IS NULL GROUP BY nodes.id`
